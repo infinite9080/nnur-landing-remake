@@ -1,0 +1,124 @@
+.heroContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.svgBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.fullScreenSvg {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  object-position: center;
+}
+
+.logoContainer {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.svgWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.textContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+  z-index: 2;
+}
+
+.path {
+  stroke-dasharray: 20 10;
+  animation: dash 15s linear infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 200;
+  }
+}
+
+.flying {
+  animation: fly 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateX(-10px) translateY(-15px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-20px) translateY(-10px);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateX(-15px) translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.8;
+  }
+}
+
+/* Specific animation for shield flying to the left */
+.shieldFlying {
+  animation: shieldFly 8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes shieldFly {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-30px) translateY(-10px) rotate(-2deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-50px) translateY(-5px) rotate(-1deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateX(-30px) translateY(-15px) rotate(-3deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+}

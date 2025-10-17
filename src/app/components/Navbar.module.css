@@ -1,0 +1,51 @@
+/* Navbar specific styles */
+.navbarStaggered {
+  z-index: 1000;
+}
+
+/* Override some styles for better integration */
+.navbarStaggered .staggered-menu-header {
+  padding: 1.5rem 2rem;
+}
+
+.navbarStaggered .sm-logo-img {
+  height: 40px;
+  width: auto;
+}
+
+/* Ensure navbar is above hero content */
+.navbarStaggered.fixed-wrapper {
+  z-index: 1000;
+}
+
+/* Custom styling for menu items */
+.navbarStaggered .sm-panel-item {
+  font-size: 2.5rem;
+}
+
+/* Ensure menu button is visible when closed */
+.navbarStaggered .sm-toggle {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+/* Ensure close button is black when menu is open */
+.navbarStaggered[data-open="true"] .sm-toggle {
+  color: #000000 !important;
+  z-index: 1001;
+}
+
+/* Override any inherited colors */
+.navbarStaggered .sm-toggle * {
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .navbarStaggered .sm-panel-item {
+    font-size: 2rem;
+  }
+
+  .navbarStaggered .staggered-menu-header {
+    padding: 1rem 1.5rem;
+  }
+}
