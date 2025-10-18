@@ -156,10 +156,7 @@
             </animate>
           </stop> -->
 
-          <stop offset="100%" stop-color="#ea4d4d">
-            <animate attributeName="stop-color" values="#ED2B33FF; #D85A7FFF; #2C5F2D; #2fb45a; #ED2B33FF;" dur="15s"
-              repeatCount="indefinite">
-            </animate>
+          <stop offset="100%" stop-color="#7030a1">
           </stop>
 
 
@@ -198,10 +195,7 @@
         </linearGradient>
         <linearGradient id="linear-gradient-54" x1="50.002" y1="-400.496" x2="51.006" y2="-399.043"
           gradientUnits="objectBoundingBox">
-          <stop offset="100%" stop-color="#437fec">
-            <animate attributeName="stop-color" values="#ED2B33FF; #D85A7FFF; #2C5F2D; #2fb45a; #ED2B33FF;" dur="15s"
-              repeatCount="indefinite">
-            </animate>
+          <stop offset="100%" stop-color="#7030a1">
           </stop>
         </linearGradient>
         <linearGradient id="linear-gradient-55" x1="-22.974" y1="260.14" x2="-22.974" y2="261.14"
@@ -210,10 +204,7 @@
           xlink:href="#linear-gradient-11" />
         <linearGradient id="linear-gradient-62" x1="42.554" y1="-408.095" x2="43.558" y2="-406.641"
           gradientUnits="objectBoundingBox">
-          <stop offset="100%" stop-color="#ffb917">
-            <animate attributeName="stop-color" values="#ED2B33FF; #D85A7FFF; #2C5F2D; #2fb45a; #ED2B33FF;" dur="15s"
-              repeatCount="indefinite">
-            </animate>
+          <stop offset="100%" stop-color="#7030a1">
           </stop>
         </linearGradient>
         <linearGradient id="linear-gradient-63" x1="-41.934" y1="437.352" x2="-41.934" y2="438.352"

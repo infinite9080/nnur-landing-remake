@@ -440,43 +440,48 @@ export const StaggeredMenu = ({
         className="staggered-menu-header"
         aria-label="Main navigation header"
       >
-        <div className="sm-logo" aria-label="Logo">
-          <img
-            src={logoUrl || "/src/assets/logos/reactbits-gh-white.svg"}
-            alt="Logo"
-            className="sm-logo-img"
-            draggable={false}
-            width={110}
-            height={24}
-          />
-        </div>
-        <button
-          ref={toggleBtnRef}
-          className="sm-toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="staggered-menu-panel"
-          onClick={toggleMenu}
-          type="button"
-        >
-          <span
-            ref={textWrapRef}
-            className="sm-toggle-textWrap"
-            aria-hidden="true"
-          >
-            <span ref={textInnerRef} className="sm-toggle-textInner">
-              {textLines.map((l, i) => (
-                <span className="sm-toggle-line" key={i}>
-                  {l}
+        <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '1500px' }}>
+          <div className="flex items-center justify-between">
+            <a href="/" className="sm-logo" aria-label="Go to home page">
+              <img
+                src={logoUrl || "/src/assets/logos/reactbits-gh-white.svg"}
+                alt="Logo"
+                className="sm-logo-img"
+                draggable={false}
+                width={110}
+                height={24}
+              />
+              <span className="sm-logo-text">nnur</span>
+            </a>
+            <button
+              ref={toggleBtnRef}
+              className="sm-toggle"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="staggered-menu-panel"
+              onClick={toggleMenu}
+              type="button"
+            >
+              <span
+                ref={textWrapRef}
+                className="sm-toggle-textWrap"
+                aria-hidden="true"
+              >
+                <span ref={textInnerRef} className="sm-toggle-textInner">
+                  {textLines.map((l, i) => (
+                    <span className="sm-toggle-line" key={i}>
+                      {l}
+                    </span>
+                  ))}
                 </span>
-              ))}
-            </span>
-          </span>
-          <span ref={iconRef} className="sm-icon" aria-hidden="true">
-            <span ref={plusHRef} className="sm-icon-line" />
-            <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
-          </span>
-        </button>
+              </span>
+              <span ref={iconRef} className="sm-icon" aria-hidden="true">
+                <span ref={plusHRef} className="sm-icon-line" />
+                <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
+              </span>
+            </button>
+          </div>
+        </div>
       </header>
 
       <aside
