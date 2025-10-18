@@ -1,0 +1,54 @@
+/* Custom styles for InfiniteMenu to match white theme */
+#infinite-grid-menu-canvas {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-radius: 1rem;
+  image-rendering: auto;
+  image-rendering: smooth;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Ensure the canvas container also has white background */
+.infinite-menu-container canvas {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  image-rendering: auto;
+  image-rendering: smooth;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.infinite-menu-container {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Override the default InfiniteMenu text colors to match white theme */
+.infinite-menu-container h2 {
+  color: #1f2937 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.infinite-menu-container p {
+  color: #4b5563 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the action button to match your purple theme */
+.infinite-menu-container div[class*="bg-[#00ffff]"] {
+  background: linear-gradient(135deg, #7030a1, #9d4edd) !important;
+  border-color: #7030a1 !important;
+  box-shadow: 0 4px 12px rgba(112, 48, 161, 0.3);
+  transition: all 0.3s ease;
+}
+
+.infinite-menu-container div[class*="bg-[#00ffff]"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(112, 48, 161, 0.4);
+}
+
+.infinite-menu-container div[class*="bg-[#00ffff]"] p {
+  color: white !important;
+  font-weight: bold;
+}

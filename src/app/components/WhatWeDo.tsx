@@ -7,8 +7,11 @@ import DecryptedText from "../../components/DecryptedText";
 
 const WhatWeDo = () => {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '1500px' }}>
+    <section className="py-16 sm:py-24 lg:py-32">
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8"
+        style={{ maxWidth: "1500px" }}
+      >
         {/* Section Title */}
         <div className="text-center mb-20 lg:mb-28">
           <TrueFocus
@@ -36,10 +39,13 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mr-6 shadow-lg">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Advanced Security</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Advanced Security
+                </h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                Multi-layered protection systems designed to defend against sophisticated cyber attacks and data breaches.
+                Multi-layered protection systems designed to defend against
+                sophisticated cyber attacks and data breaches.
               </p>
             </div>
 
@@ -48,10 +54,13 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mr-6 shadow-lg">
                   <FileCheck className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Compliance Management</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Compliance Management
+                </h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                Expert guidance on regulatory requirements including GDPR, HIPAA, SOX, and industry-specific standards.
+                Expert guidance on regulatory requirements including GDPR,
+                HIPAA, SOX, and industry-specific standards.
               </p>
             </div>
 
@@ -60,10 +69,13 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mr-6 shadow-lg">
                   <AlertTriangle className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Risk Assessment</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Risk Assessment
+                </h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                Proactive risk assessment and management strategies to minimize vulnerabilities and business disruption.
+                Proactive risk assessment and management strategies to minimize
+                vulnerabilities and business disruption.
               </p>
             </div>
 
@@ -72,10 +84,13 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mr-6 shadow-lg">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">24/7 Monitoring</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  24/7 Monitoring
+                </h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                Continuous monitoring and rapid response to security threats with our advanced threat detection systems.
+                Continuous monitoring and rapid response to security threats
+                with our advanced threat detection systems.
               </p>
             </div>
           </div>
@@ -89,9 +104,12 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">Advanced Security</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
+                  Advanced Security
+                </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Multi-layered protection systems designed to defend against sophisticated cyber attacks and data breaches.
+                  Multi-layered protection systems designed to defend against
+                  sophisticated cyber attacks and data breaches.
                 </p>
               </div>
             </div>
@@ -101,9 +119,12 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <FileCheck className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">Compliance Management</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
+                  Compliance Management
+                </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Expert guidance on regulatory requirements including GDPR, HIPAA, SOX, and industry-specific standards.
+                  Expert guidance on regulatory requirements including GDPR,
+                  HIPAA, SOX, and industry-specific standards.
                 </p>
               </div>
             </div>
@@ -113,9 +134,12 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <AlertTriangle className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">Risk Assessment</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
+                  Risk Assessment
+                </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Proactive risk assessment and management strategies to minimize vulnerabilities and business disruption.
+                  Proactive risk assessment and management strategies to
+                  minimize vulnerabilities and business disruption.
                 </p>
               </div>
             </div>
@@ -125,9 +149,12 @@ const WhatWeDo = () => {
                 <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">24/7 Monitoring</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
+                  24/7 Monitoring
+                </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Continuous monitoring and rapid response to security threats with our advanced threat detection systems.
+                  Continuous monitoring and rapid response to security threats
+                  with our advanced threat detection systems.
                 </p>
               </div>
             </div>
@@ -151,7 +178,8 @@ const WhatWeDo = () => {
               {/* Text Overlay */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
                 <p className="text-white/90 text-base xl:text-lg font-medium leading-relaxed max-w-xs">
-                  Securing your digital future with advanced cybersecurity solutions
+                  Securing your digital future with advanced cybersecurity
+                  solutions
                 </p>
               </div>
             </div>
