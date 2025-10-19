@@ -1,0 +1,163 @@
+/* Custom styles for AboutUs ProfileCards */
+.profileCardOverride .pc-details h3 {
+  color: #ffffff !important;
+  background-image: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
+  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9)) !important;
+}
+
+.profileCardOverride .pc-details p {
+  color: #ffffff !important;
+  background-image: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
+  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9)) !important;
+}
+
+/* Make avatar images very small to show more text area */
+.profileCardOverride .avatar {
+  width: 40% !important;
+  transform: translateX(-50%) scale(0.5) !important;
+  bottom: 25px !important;
+}
+
+/* Move text much higher and make it more prominent */
+.profileCardOverride .pc-details {
+  top: 0.5em !important;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(25px);
+  border-radius: 15px;
+  padding: 25px 20px;
+  margin: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Adjust text sizes for better visibility */
+.profileCardOverride .pc-details h3 {
+  font-size: min(3.5svh, 2em) !important;
+  margin-bottom: 8px !important;
+  font-weight: 700 !important;
+}
+
+.profileCardOverride .pc-details p {
+  font-size: 16px !important;
+  top: 0px !important;
+  font-weight: 600 !important;
+}
+
+/* Improve overall text contrast */
+.profileCardOverride .pc-details h3,
+.profileCardOverride .pc-details p {
+  position: relative;
+}
+
+/* Add more space at the bottom for text and reduce image visibility at top */
+.profileCardOverride .pc-avatar-content::before {
+  mask: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 1) 100%) !important;
+}
+
+/* Make text even more prominent with better contrast */
+.profileCardOverride .pc-details h3,
+.profileCardOverride .pc-details p {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
+  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9)) !important;
+}
+
+/* Override hover and active states to prevent rainbow colors */
+.profileCardOverride:hover .pc-details h3,
+.profileCardOverride.active .pc-details h3,
+.profileCardOverride .pc-card:hover .pc-details h3,
+.profileCardOverride .pc-card.active .pc-details h3 {
+  color: #ffffff !important;
+  background-image: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+}
+
+.profileCardOverride:hover .pc-details p,
+.profileCardOverride.active .pc-details p,
+.profileCardOverride .pc-card:hover .pc-details p,
+.profileCardOverride .pc-card.active .pc-details p {
+  color: #ffffff !important;
+  background-image: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+}
+
+/* Disable ALL shine/holographic effects */
+.profileCardOverride .pc-shine {
+  display: none !important;
+}
+
+.profileCardOverride .pc-glare {
+  display: none !important;
+}
+
+.profileCardOverride .pc-shine::before,
+.profileCardOverride .pc-shine::after {
+  display: none !important;
+}
+
+/* Disable all hover shine effects */
+.profileCardOverride:hover .pc-shine,
+.profileCardOverride.active .pc-shine,
+.profileCardOverride .pc-card:hover .pc-shine,
+.profileCardOverride .pc-card.active .pc-shine {
+  display: none !important;
+  opacity: 0 !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+.profileCardOverride:hover .pc-glare,
+.profileCardOverride.active .pc-glare,
+.profileCardOverride .pc-card:hover .pc-glare,
+.profileCardOverride .pc-card.active .pc-glare {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+}
+
+/* Remove any background animations */
+.profileCardOverride .pc-card {
+  animation: none !important;
+  background-image: none !important;
+}
+
+.profileCardOverride:hover .pc-card,
+.profileCardOverride.active .pc-card {
+  animation: none !important;
+  background-image: none !important;
+}
+
+/* Mobile centering fixes */
+@media (max-width: 768px) {
+  .profileCardOverride {
+    margin: 0 auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  
+  /* Ensure the profile card container is centered */
+  .profileCardOverride .pc-card {
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  
+  /* Center the entire profile card component */
+  .profileCardOverride {
+    text-align: center !important;
+  }
+}

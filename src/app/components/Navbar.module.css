@@ -1,6 +1,146 @@
+/* Custom font face */
+@font-face {
+  font-family: 'Abingdon';
+  src: url('/fonts/abingdon-regular-font-/Abingdon Regular_5900.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Abingdon';
+  src: url('/fonts/abingdon-regular-font-/Abingdon Bold_5898.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Logo text styling */
+.logoText {
+  font-family: 'Abingdon', serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2.5rem;
+  padding-right:5px;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #7030a1, #9d4edd, #c77dff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(112, 48, 161, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoText:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(112, 48, 161, 0.6));
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Enhanced navbar animations */
+.navbarContainer {
+  /* No conflicting transitions */
+}
+
+/* Enhanced navigation links */
+.navLink {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(112, 48, 161, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.navLink:hover::before {
+  left: 100%;
+}
+
+.navLink:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 4px 8px rgba(112, 48, 161, 0.3);
+}
+
+/* Enhanced CTA button */
+.ctaButton {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(112, 48, 161, 0.3);
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(112, 48, 161, 0.5);
+}
+
 /* Navbar specific styles */
 .navbarStaggered {
   z-index: 1000;
+}
+
+/* Desktop navbar shrinking animation */
+@media (min-width: 768px) {
+  .desktopNavbar {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .desktopNavbar.scrolled {
+    transform: scale(0.95);
+    backdrop-filter: blur(20px);
+  }
+  
+  .desktopNavbar.scrolled .logoText {
+    font-size: 2.2rem;
+    transition: font-size 0.5s ease;
+  }
+}
+
+/* Ensure mobile navbar stays unchanged */
+@media (max-width: 767px) {
+  .navbarStaggered {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
 }
 
 /* Override some styles for better integration */

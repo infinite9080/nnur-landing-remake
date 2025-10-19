@@ -3,18 +3,27 @@ import Navbar from "./components/Navbar";
 import WhatWeDo from "./components/WhatWeDo";
 import ServicesSection from "./components/ServicesSection";
 import OurProduct from "./components/OurProduct";
+import AboutUs from "./components/AboutUs";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+import FlexibleBackgroundMeteors from "./components/FlexibleBackgroundMeteors";
+
+
 
 export default function Home() {
   return (
     <div className="font-sans overflow-x-hidden">
       <Navbar />
       <HeroSection />
-      {/* Main content with consistent background */}
-      <div className="bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
+      {/* Main content with animated meteor background */}
+      <FlexibleBackgroundMeteors>
         <WhatWeDo />
         <OurProduct />
         <ServicesSection />
-      </div>
+        <AboutUs />
+        <ContactSection />
+      </FlexibleBackgroundMeteors>
+      <Footer />
     </div>
   );
 }
