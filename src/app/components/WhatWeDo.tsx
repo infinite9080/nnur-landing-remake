@@ -19,7 +19,7 @@ const WhatWeDo = () => {
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="max-w-4xl mx-auto mt-10">
+          <div className="max-w-4xl mx-auto mt-10 min-h-[4rem] flex items-center">
             <DecryptedText
               text="We provide comprehensive cybersecurity and compliance solutions to protect your digital assets and ensure regulatory adherence across all business operations."
               className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
@@ -162,26 +162,16 @@ const WhatWeDo = () => {
 
           {/* Central Feature Image */}
           <div className="flex justify-center">
-            <div className="relative w-96 h-96 xl:w-[450px] xl:h-[450px] rounded-full shadow-2xl overflow-hidden">
+            <div className="relative w-96 h-96 xl:w-[450px] xl:h-[450px] overflow-hidden">
               {/* Background Image */}
               <div className="absolute inset-0">
                 <img
-                  src="happy-business-people-laughing-and-enjoying-a-casual-chat-in-an-office-taking-a-break-from-paperwo.webp"
+                  src="/cctv.gif"
                   alt="Security Background"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/80 via-[#8b5cf6]/70 to-[#9d4edd]/80"></div>
-
-              {/* Text Overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
-                <p className="text-white/90 text-base xl:text-lg font-medium leading-relaxed max-w-xs">
-                  Securing your digital future with advanced cybersecurity
-                  solutions
-                </p>
-              </div>
             </div>
           </div>
         </div>

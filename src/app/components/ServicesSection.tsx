@@ -183,7 +183,7 @@ const ServicesSection = () => {
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="mt-8 sm:mt-10">
+          <div className="mt-8 sm:mt-10 min-h-[4rem] flex items-center">
             <DecryptedText
               text="Comprehensive cybersecurity solutions designed to protect, detect, and respond to evolving digital threats across all aspects of your business infrastructure."
               className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-light"
@@ -204,11 +204,10 @@ const ServicesSection = () => {
                 <button
                   key={index}
                   onClick={() => setActiveCategory(index)}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ${
-                    activeCategory === index
-                      ? "bg-gradient-to-r from-[#7030a1] to-[#9d4edd] text-white shadow-lg scale-105"
-                      : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#7030a1] border border-gray-200 hover:border-[#7030a1]/30 shadow-md hover:shadow-lg"
-                  }`}
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ${activeCategory === index
+                    ? "bg-gradient-to-r from-[#7030a1] to-[#9d4edd] text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#7030a1] border border-gray-200 hover:border-[#7030a1]/30 shadow-md hover:shadow-lg"
+                    }`}
                 >
                   <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="font-medium text-xs sm:text-sm lg:text-base whitespace-nowrap">

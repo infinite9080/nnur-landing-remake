@@ -8,7 +8,9 @@ const styles = {
     display: 'inline-block',
     whiteSpace: 'pre-wrap' as 'pre-wrap',
     willChange: 'contents',
-    contain: 'layout'
+    contain: 'layout style',
+    minHeight: '1em',
+    lineHeight: 'inherit'
   },
   srOnly: {
     position: 'absolute' as 'absolute',
