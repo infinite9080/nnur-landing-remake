@@ -1,44 +1,60 @@
-/* Additional styles for OurProduct component */
-.productSection {
-  position: relative;
+/* Animation for the carousel content on the right */
+.carouselContent {
+  animation: contentFadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.productCard {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Animation for the accordion content on the left */
+.accordionContent {
+    animation: accordionFadeIn 0.5s ease-out forwards;
 }
 
-.productCard:hover {
-  transform: translateY(-12px) scale(1.02);
+@keyframes accordionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.menuContainer {
-  min-height: 400px;
+/* Styles for Carousel Dots */
+.dotsContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0; /* 20px vertical padding */
+  gap: 0.75rem; /* 12px space between dots */
 }
 
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px; /* Make it a circle */
+  background-color: #d1d5db; /* Inactive color (gray-300) */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .productGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.dot:hover {
+  background-color: #a78bfa; /* Hover color (violet-400) */
+}
 
-  .statsGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+.dot.active {
+  background-color: #7030a1; /* Active color (purple) */
+  transform: scale(1.25); /* Make the active dot slightly larger */
 }
