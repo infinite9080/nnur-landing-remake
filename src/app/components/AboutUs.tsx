@@ -4,23 +4,19 @@ import React from "react";
 import TrueFocus from "../../components/TrueFocus";
 import DecryptedText from "../../components/DecryptedText";
 import ProfileCard from "../../components/ProfileCard";
-import "./AboutUs.module.css";
+import styles from "./AboutUs.module.css";
 import {
     Users,
-    Target,
-    Shield,
-    Zap,
-    CheckCircle,
-    Award,
     Lock,
-    Heart,
     Building,
-    Lightbulb,
-    Clock,
-    Star
+    Shield,
+    CheckCircle,
+    Heart
 } from "lucide-react";
 
 const AboutUs = () => {
+
+
     return (
         <section className="py-16 sm:py-24 lg:py-32">
             <div
@@ -34,7 +30,7 @@ const AboutUs = () => {
                         borderColor="purple"
                         blurAmount={0}
                     />
-                    <div className="max-w-4xl mx-auto mt-10 min-h-[4rem] flex items-center">
+                    <div className="max-w-4xl mx-auto mt-10" style={{ minHeight: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <DecryptedText
                             text="We are a team of passionate innovators dedicated to making cybersecurity and compliance simple, effective, and accessible for businesses of all sizes."
                             className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
@@ -46,210 +42,293 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                {/* Our Motto Section */}
-                <div className="mb-20 lg:mb-28">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                {/* Our Motto Section - Split Panel Design */}
+                <div className={styles.mottoSection}>
+                    <div className={styles.mottoSectionHeader}>
+                        <h2 className={styles.mottoSectionTitle}>
                             Our Motto
                         </h2>
+                        <p className={styles.mottoSectionSubtitle}>
+                            The core values that drive everything we do
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {/* Make it Simple and Easy */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <Lightbulb className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Make it Simple and Easy
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    We speak same language as our customers. All of our products are super simple and easy comparing to our competitors.
-                                </p>
+                    <div className={styles.mottoPanelContainer}>
+                        <div className={`${styles.mottoPanel} ${styles.mottoPanel1}`}>
+                            <div className={styles.mottoPanelContent}>
+                                <div className={styles.mottoNumber}>01</div>
+                                <h3 className={styles.mottoText}>Innovation</h3>
                             </div>
                         </div>
-
-                        {/* We Make Things Easy */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <Zap className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    We Make Things Easy
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    You will not need a professional to understand the way our software works. As easy as it can be.
-                                </p>
+                        <div className={`${styles.mottoPanel} ${styles.mottoPanel2}`}>
+                            <div className={styles.mottoPanelContent}>
+                                <div className={styles.mottoNumber}>02</div>
+                                <h3 className={styles.mottoText}>Excellence</h3>
                             </div>
                         </div>
+                        <div className={`${styles.mottoPanel} ${styles.mottoPanel3}`}>
+                            <div className={styles.mottoPanelContent}>
+                                <div className={styles.mottoNumber}>03</div>
+                                <h3 className={styles.mottoText}>Integrity</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                        {/* Energetic Team */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <Users className="w-8 h-8 text-white" />
+                {/* Why Choose Us Section - Horizontal Timeline */}
+                <div className={styles.whyChooseSection}>
+                    <div className={styles.whySectionHeader}>
+                        <h2 className={styles.whySectionTitle}>
+                            Why Choose Us
+                        </h2>
+                        <p className={styles.whySectionSubtitle}>
+                            Four pillars that define our commitment to excellence
+                        </p>
+                    </div>
+
+                    <div className={styles.whyTimelineContainer}>
+                        <div className={styles.whyTimelineLine}></div>
+
+                        <div className={styles.whyTimelineGrid}>
+                            <div className={styles.whyTimelineItem}>
+                                <div className={styles.whyIconCircle}>
+                                    <div className={styles.whyIconInner}>
+                                        <Building className="w-16 h-16 text-white" strokeWidth={1.5} />
+                                    </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
+                                <h3 className={styles.whyItemTitle}>
+                                    Industry Experience
+                                </h3>
+                                <p className={styles.whyItemDescription}>
+                                    We have practical field experience on Telco and IT sectors on managing strategy, planning, security, operation and development.
+                                </p>
+                            </div>
+
+                            <div className={styles.whyTimelineItem}>
+                                <div className={styles.whyIconCircle}>
+                                    <div className={styles.whyIconInner}>
+                                        <CheckCircle className="w-16 h-16 text-white" strokeWidth={1.5} />
+                                    </div>
+                                </div>
+                                <h3 className={styles.whyItemTitle}>
+                                    Easy and Efficient
+                                </h3>
+                                <p className={styles.whyItemDescription}>
+                                    Easy as it can be, is one of the moto to delivery solutions to our customers. All solutions are designed based on how people think naturally.
+                                </p>
+                            </div>
+
+                            <div className={styles.whyTimelineItem}>
+                                <div className={styles.whyIconCircle}>
+                                    <div className={styles.whyIconInner}>
+                                        <Lock className="w-16 h-16 text-white" strokeWidth={1.5} />
+                                    </div>
+                                </div>
+                                <h3 className={styles.whyItemTitle}>
+                                    Privacy And Security
+                                </h3>
+                                <p className={styles.whyItemDescription}>
+                                    All of our solutions are specially developed considering customers' privacy and security as a mandatory non-functional requirements.
+                                </p>
+                            </div>
+
+                            <div className={styles.whyTimelineItem}>
+                                <div className={styles.whyIconCircle}>
+                                    <div className={styles.whyIconInner}>
+                                        <Users className="w-16 h-16 text-white" strokeWidth={1.5} />
+                                    </div>
+                                </div>
+                                <h3 className={styles.whyItemTitle}>
                                     Energetic Team
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className={styles.whyItemDescription}>
                                     We depend on youth to design, code and implement our solutions. Our developers average age is below 30.
                                 </p>
                             </div>
                         </div>
-
-                        {/* Experience Guidance */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <Award className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Experience Guidance
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Our founder and leaders have long experience in IT, Telco and Service business to guide the team towards a right direction.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                {/* Why Choose Us Section */}
-                <div className="mb-20 lg:mb-28">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                            Why Choose Us
-                        </h2>
-
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Industry Experience */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <Building className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Industry Experience
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    We have practical field experience on Telco and IT sectors on managing strategy, planning, security, operation and development.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Easy and Efficient */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <CheckCircle className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Easy and Efficient
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Easy as it can be, is one of the moto to delivery solutions to our customers. All solutions are designed based on how people think naturally.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Privacy And Security */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                                    <Lock className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Privacy And Security
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    All of our solutions are specially developed considering customers' privacy and security as a mandatory non-functional requirements.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Our Focus Section */}
-                <div className="mb-20 lg:mb-28">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                {/* Our Focus Section - Interactive Neural Network */}
+                <div className={styles.focusSection}>
+                    <div className={styles.focusSectionHeader}>
+                        <h2 className={styles.focusSectionTitle}>
                             Our Focus
                         </h2>
-
+                        <p className={styles.focusSectionSubtitle}>
+                            Interconnected expertise driving innovation
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Enterprise Software from SaaS */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-full w-12 h-12 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                                    <span className="text-white font-bold text-lg">1</span>
+                    <div className={styles.neuralNetwork}>
+                        {/* Connection Lines */}
+                        <svg className={styles.connectionSvg} viewBox="0 0 800 600">
+                            <defs>
+                                <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                                    <stop offset="50%" stopColor="#a855f7" stopOpacity="0.6" />
+                                    <stop offset="100%" stopColor="#ec4899" stopOpacity="0.4" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+
+                            {/* Animated connection lines */}
+                            <path
+                                d="M200,150 Q400,100 600,200"
+                                stroke="url(#connectionGradient)"
+                                strokeWidth="2"
+                                fill="none"
+                                className={styles.connectionLine}
+                                filter="url(#glow)"
+                            />
+                            <path
+                                d="M200,150 Q300,350 500,450"
+                                stroke="url(#connectionGradient)"
+                                strokeWidth="2"
+                                fill="none"
+                                className={styles.connectionLine}
+                                style={{ animationDelay: '0.5s' }}
+                                filter="url(#glow)"
+                            />
+                            <path
+                                d="M600,200 Q550,350 500,450"
+                                stroke="url(#connectionGradient)"
+                                strokeWidth="2"
+                                fill="none"
+                                className={styles.connectionLine}
+                                style={{ animationDelay: '1s' }}
+                                filter="url(#glow)"
+                            />
+
+                            {/* Pulse dots traveling along paths */}
+                            <circle r="4" fill="#8b5cf6" className={styles.pulseNode1}>
+                                <animateMotion dur="3s" repeatCount="indefinite">
+                                    <mpath href="#path1" />
+                                </animateMotion>
+                            </circle>
+                            <circle r="4" fill="#a855f7" className={styles.pulseNode2}>
+                                <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+                                    <mpath href="#path2" />
+                                </animateMotion>
+                            </circle>
+                        </svg>
+
+                        {/* Focus Nodes */}
+                        <div className={styles.focusNode} style={{ top: '15%', left: '20%' }}>
+                            <div className={styles.nodeCore}>
+                                <div className={styles.nodeIcon}>
+                                    <Building className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Enterprise Software from SaaS
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    We mainly focus on enterprise grade software serving from SaaS. However, if due to regulatory it requires to have the software on-prem, we can deploy on-prem version.
-                                </p>
+                                <div className={styles.nodeRipple}></div>
+                            </div>
+                            <div className={styles.nodeContent}>
+                                <h3 className={styles.nodeTitle}>Enterprise Software</h3>
+                                <div className={styles.nodeMetrics}>
+                                    <div className={styles.metric}>
+                                        <span className={styles.metricValue}>100%</span>
+                                        <span className={styles.metricLabel}>Cloud Ready</span>
+                                    </div>
+                                    <div className={styles.metric}>
+                                        <span className={styles.metricValue}>24/7</span>
+                                        <span className={styles.metricLabel}>Support</span>
+                                    </div>
+                                </div>
+                                <div className={styles.nodeFeatures}>
+                                    <span>SaaS Solutions</span>
+                                    <span>On-Premise</span>
+                                    <span>Hybrid Cloud</span>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Priority on Security, Compliance and Audit */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-full w-12 h-12 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                                    <span className="text-white font-bold text-lg">2</span>
+                        <div className={styles.focusNode} style={{ top: '20%', right: '15%' }}>
+                            <div className={styles.nodeCore}>
+                                <div className={styles.nodeIcon}>
+                                    <Shield className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Priority on Security, Compliance and Audit
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    We give more priority on products related to Security, Compliance and Audit. We will keep focus on these topics to ensure business sustainability of our customers.
-                                </p>
+                                <div className={styles.nodeRipple}></div>
+                            </div>
+                            <div className={styles.nodeContent}>
+                                <h3 className={styles.nodeTitle}>Security & Compliance</h3>
+                                <div className={styles.nodeMetrics}>
+                                    <div className={styles.metric}>
+                                        <span className={styles.metricValue}>Bank</span>
+                                        <span className={styles.metricLabel}>Level Security</span>
+                                    </div>
+                                    <div className={styles.metric}>
+                                        <span className={styles.metricValue}>ISO</span>
+                                        <span className={styles.metricLabel}>Certified</span>
+                                    </div>
+                                </div>
+                                <div className={styles.nodeFeatures}>
+                                    <span>Zero Trust</span>
+                                    <span>Compliance</span>
+                                    <span>Audit Ready</span>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Customer Centricity and Satisfaction */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-full w-12 h-12 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                                    <span className="text-white font-bold text-lg">3</span>
+                        <div className={styles.focusNode} style={{ bottom: '15%', left: '50%', transform: 'translateX(-50%)' }}>
+                            <div className={styles.nodeCore}>
+                                <div className={styles.nodeIcon}>
+                                    <Heart className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
-                                    Customer Centricity and Satisfaction
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    We never say, customer is always right; but we believe customer's happiness and satisfaction will give us opportunity to grow together.
-                                </p>
+                                <div className={styles.nodeRipple}></div>
                             </div>
+                            <div className={styles.nodeContent}>
+                                <h3 className={styles.nodeTitle}>Customer Success</h3>
+                                <div className={styles.nodeMetrics}>
+                                    <div className={styles.metric}>
+                                        <span className={styles.metricValue}>98%</span>
+                                        <span className={styles.metricLabel}>Satisfaction</span>
+                                    </div>
+                                    <div className={styles.metric}>
+                                        <span className={styles.metricValue}>5★</span>
+                                        <span className={styles.metricLabel}>Rating</span>
+                                    </div>
+                                </div>
+                                <div className={styles.nodeFeatures}>
+                                    <span>Partnership</span>
+                                    <span>Growth Focus</span>
+                                    <span>Success Driven</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Floating Data Particles */}
+                        <div className={styles.dataParticles}>
+                            <div className={styles.dataParticle} style={{ top: '10%', left: '10%' }}>01</div>
+                            <div className={styles.dataParticle} style={{ top: '30%', right: '10%' }}>02</div>
+                            <div className={styles.dataParticle} style={{ bottom: '20%', left: '15%' }}>03</div>
+                            <div className={styles.dataParticle} style={{ top: '60%', right: '25%' }}>04</div>
+                            <div className={styles.dataParticle} style={{ bottom: '30%', right: '10%' }}>05</div>
+                        </div>
+
+                        {/* Central Energy Hub */}
+                        <div className={styles.energyHub}>
+                            <div className={styles.hubCore}></div>
+                            <div className={styles.hubRing1}></div>
+                            <div className={styles.hubRing2}></div>
+                            <div className={styles.hubRing3}></div>
                         </div>
                     </div>
                 </div>
 
-
-                <div className="mb-20 lg:mb-28">
+                {/* Our Leaders Section */}
+                <div id="our-leaders" className="mb-20 lg:mb-28">
                     <div className="text-center mb-16">
                         <TrueFocus
                             sentence="Our Leaders"
                             borderColor="purple"
                             blurAmount={0}
                         />
-                        <div className="max-w-4xl mx-auto mt-10 min-h-[4rem] flex items-center">
+                        <div className="max-w-4xl mx-auto mt-10" style={{ minHeight: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <DecryptedText
                                 text="Meet our passionate leaders who drive innovation and excellence in cybersecurity and compliance solutions."
                                 className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
@@ -261,8 +340,7 @@ const AboutUs = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto place-items-center">
-                        {/* Mohammed Shafat Patvary */}
+                    <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto place-items-center ${styles.stableGrid}`}>
                         <div className="flex justify-center">
                             <ProfileCard
                                 avatarUrl="/CEO-Mohammed-Shafat-Patvary-removebg-preview.png"
@@ -273,17 +351,16 @@ const AboutUs = () => {
                                 status="CEO and Co-Founder"
                                 contactText="LinkedIn"
                                 showUserInfo={true}
-                                enableTilt={true}
-                                enableMobileTilt={true}
+                                enableTilt={false}
+                                enableMobileTilt={false}
                                 showBehindGradient={false}
-                                className="w-full max-w-sm profileCardOverride"
+                                className={`w-full max-w-sm ${styles.profileCardOverride}`}
                                 onContactClick={() => {
                                     window.open("https://www.linkedin.com/in/shafat-patvary/", "_blank");
                                 }}
                             />
                         </div>
 
-                        {/* Firoz Haider Khan */}
                         <div className="flex justify-center">
                             <ProfileCard
                                 avatarUrl="/Firoz-Haider-Khan-removebg-preview.png"
@@ -294,17 +371,16 @@ const AboutUs = () => {
                                 status="Director and Co-Founder"
                                 contactText="LinkedIn"
                                 showUserInfo={true}
-                                enableTilt={true}
-                                enableMobileTilt={true}
+                                enableTilt={false}
+                                enableMobileTilt={false}
                                 showBehindGradient={false}
-                                className="w-full max-w-sm profileCardOverride"
+                                className={`w-full max-w-sm ${styles.profileCardOverride}`}
                                 onContactClick={() => {
                                     window.open("https://www.linkedin.com/in/firoz-haider-khan/", "_blank");
                                 }}
                             />
                         </div>
 
-                        {/* Asaduzzaman */}
                         <div className="flex justify-center">
                             <ProfileCard
                                 avatarUrl="/1704514286464-removebg-preview.png"
@@ -315,17 +391,16 @@ const AboutUs = () => {
                                 status="HR and Admin"
                                 contactText="LinkedIn"
                                 showUserInfo={true}
-                                enableTilt={true}
-                                enableMobileTilt={true}
+                                enableTilt={false}
+                                enableMobileTilt={false}
                                 showBehindGradient={false}
-                                className="w-full max-w-sm profileCardOverride"
+                                className={`w-full max-w-sm ${styles.profileCardOverride}`}
                                 onContactClick={() => {
                                     window.open("https://www.linkedin.com/in/asaduzzaman/", "_blank");
                                 }}
                             />
                         </div>
 
-                        {/* Mohammad Arif Rahim */}
                         <div className="flex justify-center">
                             <ProfileCard
                                 avatarUrl="/1636123774508-removebg-preview.png"
@@ -336,10 +411,10 @@ const AboutUs = () => {
                                 status="Head of Operations"
                                 contactText="LinkedIn"
                                 showUserInfo={true}
-                                enableTilt={true}
-                                enableMobileTilt={true}
+                                enableTilt={false}
+                                enableMobileTilt={false}
                                 showBehindGradient={false}
-                                className="w-full max-w-sm profileCardOverride"
+                                className={`w-full max-w-sm ${styles.profileCardOverride}`}
                                 onContactClick={() => {
                                     window.open("https://www.linkedin.com/in/mohammad-arif-rahim/", "_blank");
                                 }}

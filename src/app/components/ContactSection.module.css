@@ -1,0 +1,20 @@
+/* Fix for contact section card hover shaking */
+.stableGrid {
+  contain: layout;
+  transform: translateZ(0);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.hoverCard {
+  will-change: transform, box-shadow;
+  contain: layout style;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.contactContainer {
+  contain: layout;
+  transform: translateZ(0);
+}

@@ -13,13 +13,35 @@
   font-style: normal;
 }
 
+/* Main navbar container for smooth animation */
+.navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Pop-out effect on scroll */
+.navbar.scrolled {
+  transform: scale(0.92) translateY(0);
+  backdrop-filter: blur(20px);
+  margin: 1rem 6rem 0 6rem;
+  top: 1rem;
+  box-shadow: 0 10px 40px rgba(112, 48, 161, 0.25);
+  /* --- ADDED --- This rounds the corners */
+  border-radius: 50px;
+}
+
+
 /* Logo text styling */
 .logoText {
   font-family: 'Abingdon', serif;
   font-weight: bold;
   font-style: italic;
-  font-size: 2.5rem;
-  padding-right:5px;
+  font-size: 3rem;
   letter-spacing: -0.05em;
   background: linear-gradient(135deg, #7030a1, #9d4edd, #c77dff);
   background-size: 200% 200%;
@@ -29,6 +51,7 @@
   animation: gradientShift 3s ease-in-out infinite;
   text-shadow: 0 0 20px rgba(112, 48, 161, 0.3);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .logoText:hover {
@@ -48,14 +71,12 @@
   }
 }
 
-/* Enhanced navbar animations */
-.navbarContainer {
-  /* No conflicting transitions */
-}
-
-/* Enhanced navigation links */
+/* Desktop navigation links */
 .navLink {
   position: relative;
+  color: #374151;
+  font-weight: 600;
+  text-decoration: none;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -76,15 +97,21 @@
 }
 
 .navLink:hover {
+  color: #7030a1;
+  background-color: rgba(112, 48, 161, 0.05);
   transform: translateY(-2px);
-  text-shadow: 0 4px 8px rgba(112, 48, 161, 0.3);
+  text-shadow: 0 2px 4px rgba(112, 48, 161, 0.2);
 }
 
-/* Enhanced CTA button */
+/* Desktop CTA button */
 .ctaButton {
+  background: linear-gradient(135deg, #7030a1 0%, #9d4edd 50%, #c77dff 100%);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(112, 48, 161, 0.3);
 }
 
@@ -104,88 +131,183 @@
 }
 
 .ctaButton:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(112, 48, 161, 0.5);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(112, 48, 161, 0.4);
 }
 
-/* Navbar specific styles */
-.navbarStaggered {
-  z-index: 1000;
+/* Mobile menu button */
+.mobileMenuButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* Desktop navbar shrinking animation */
-@media (min-width: 768px) {
-  .desktopNavbar {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .desktopNavbar.scrolled {
-    transform: scale(0.95);
-    backdrop-filter: blur(20px);
-  }
-  
-  .desktopNavbar.scrolled .logoText {
-    font-size: 2.2rem;
-    transition: font-size 0.5s ease;
-  }
+.mobileMenuButton:hover {
+  background-color: rgba(112, 48, 161, 0.1);
 }
 
-/* Ensure mobile navbar stays unchanged */
-@media (max-width: 767px) {
-  .navbarStaggered {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    transform: none !important;
-    border-radius: 0 !important;
-    margin: 0 !important;
-  }
+.mobileMenuButton:focus {
+  outline: 2px solid #7030a1;
+  outline-offset: 2px;
 }
 
-/* Override some styles for better integration */
-.navbarStaggered .staggered-menu-header {
-  padding: 1.5rem 2rem;
-}
-
-.navbarStaggered .sm-logo-img {
-  height: 40px;
-  width: auto;
-}
-
-/* Ensure navbar is above hero content */
-.navbarStaggered.fixed-wrapper {
-  z-index: 1000;
-}
-
-/* Custom styling for menu items */
-.navbarStaggered .sm-panel-item {
-  font-size: 2.5rem;
-}
-
-/* Ensure menu button is visible when closed */
-.navbarStaggered .sm-toggle {
-  color: #000000 !important;
+/* Mobile navigation links */
+.mobileNavLink {
+  color: #374151;
   font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInFromTop 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
-/* Ensure close button is black when menu is open */
-.navbarStaggered[data-open="true"] .sm-toggle {
-  color: #000000 !important;
-  z-index: 1001;
+.mobileNavLink:hover {
+  color: #7030a1;
+  background-color: rgba(112, 48, 161, 0.1);
+  transform: translateX(8px);
 }
 
-/* Override any inherited colors */
-.navbarStaggered .sm-toggle * {
-  color: inherit;
+/* Mobile CTA button */
+.mobileCTA {
+  background: linear-gradient(135deg, #7030a1 0%, #9d4edd 50%, #c77dff 100%);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(112, 48, 161, 0.3);
 }
 
-@media (max-width: 768px) {
-  .navbarStaggered .sm-panel-item {
+.mobileCTA:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(112, 48, 161, 0.4);
+}
+
+/* Social links */
+.socialLink {
+  color: #6b7280;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.socialLink:hover {
+  color: #7030a1;
+  background-color: rgba(112, 48, 161, 0.1);
+  border-color: #7030a1;
+}
+
+/* Animation for mobile menu items */
+@keyframes slideInFromTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (min-width: 1440px) {
+  .navbar.scrolled {
+    transform: scale(0.90) translateY(0);
+    margin: 0 8rem;
+    top: 1.5rem;
+    /* --- ADDED --- */
+    border-radius: 50px;
+  }
+
+  .navbar.scrolled .logoText {
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .navbar.scrolled {
+    transform: scale(0.92) translateY(0);
+    margin: 0 6rem;
+    top: 1rem;
+    /* --- ADDED --- */
+    border-radius: 50px;
+  }
+
+  .navbar.scrolled .logoText {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .logoText {
     font-size: 2rem;
   }
 
-  .navbarStaggered .staggered-menu-header {
-    padding: 1rem 1.5rem;
+  .navbar.scrolled {
+    transform: scale(0.96) translateY(0);
+    margin: 0 2rem;
+    top: 0.75rem;
+    /* --- ADDED --- */
+    border-radius: 50px;
   }
+
+  .navbar.scrolled .logoText {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoText {
+    font-size: 1.75rem;
+  }
+
+  .navbar {
+    backdrop-filter: blur(10px);
+  }
+
+  .navbar.scrolled {
+    transform: scale(0.98) translateY(0);
+    margin: 0 1rem;
+    top: 0.5rem;
+    /* --- ADDED --- */
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(112, 48, 161, 0.15);
+  }
+
+  .navbar.scrolled .logoText {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .logoText {
+    font-size: 1.5rem;
+  }
+
+  .navbar.scrolled .logoText {
+    font-size: 1.4rem;
+  }
+}
+
+/* Focus states for accessibility */
+.navLink:focus,
+.ctaButton:focus,
+.mobileNavLink:focus,
+.mobileCTA:focus,
+.socialLink:focus {
+  outline: 2px solid #7030a1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Prevent layout shift during animations */
+.logoText,
+.navLink,
+.ctaButton,
+.mobileMenuButton,
+.mobileNavLink,
+.mobileCTA,
+.socialLink {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }

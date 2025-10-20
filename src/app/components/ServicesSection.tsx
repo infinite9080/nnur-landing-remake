@@ -183,7 +183,7 @@ const ServicesSection = () => {
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="mt-8 sm:mt-10 min-h-[4rem] flex items-center">
+          <div className="mt-8 sm:mt-10" style={{ minHeight: '6rem', display: 'flex', alignItems: 'center' }}>
             <DecryptedText
               text="Comprehensive cybersecurity solutions designed to protect, detect, and respond to evolving digital threats across all aspects of your business infrastructure."
               className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-light"

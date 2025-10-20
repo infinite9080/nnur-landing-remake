@@ -14,14 +14,26 @@ export default function Home() {
   return (
     <div className="font-sans overflow-x-hidden">
       <Navbar />
-      <HeroSection />
-      {/* Main content with animated meteor background */}
+      <div id="home">
+        <HeroSection />
+      </div>
+   
       <FlexibleBackgroundMeteors>
-        <WhatWeDo />
-        <OurProduct />
-        <ServicesSection />
-        <AboutUs />
-        <ContactSection />
+      <div id="what-we-do">
+          <WhatWeDo />
+        </div>
+        <div id="our-products">
+          <OurProduct />
+        </div>
+        <div id="our-services">
+          <ServicesSection />
+        </div>
+        <div id="about-us">
+          <AboutUs />
+        </div>
+        <div id="contact">
+          <ContactSection />
+        </div>
       </FlexibleBackgroundMeteors>
       <Footer />
     </div>

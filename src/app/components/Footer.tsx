@@ -2,13 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Twitter, 
-  Facebook, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
   Instagram,
   ArrowUp,
   Shield,
@@ -32,20 +32,14 @@ const Footer = () => {
     { name: "nISMA", href: "/products/nisma", description: "Security Maturity" },
   ];
 
-  const companyLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Our Team", href: "#team" },
-    { name: "Careers", href: "/careers" },
-    { name: "News & Updates", href: "/news" },
-    { name: "Contact", href: "#contact" },
-  ];
+
 
   const serviceLinks = [
-    { name: "Cybersecurity", href: "#services" },
-    { name: "Compliance", href: "#services" },
-    { name: "Risk Assessment", href: "#services" },
-    { name: "Security Training", href: "#services" },
-    { name: "Consulting", href: "#services" },
+    { name: "Cybersecurity", href: "/services/cybersecurity" },
+    { name: "Compliance", href: "/services/compliance" },
+    { name: "Risk Assessment", href: "/services/risk-assessment" },
+    { name: "Security Training", href: "/services/security-training" },
+    { name: "Consulting", href: "/services/consulting" },
   ];
 
   const legalLinks = [
@@ -66,9 +60,9 @@ const Footer = () => {
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="container mx-auto px-6 py-16">
+        <div className="container mx-auto px-6 py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-            
+
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
@@ -81,9 +75,9 @@ const Footer = () => {
                   nnur
                 </span>
               </div>
-              
+
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-                Empowering businesses with comprehensive cybersecurity and compliance solutions. 
+                Empowering businesses with comprehensive cybersecurity and compliance solutions.
                 Protecting your digital assets while ensuring regulatory adherence across all operations.
               </p>
 
@@ -126,7 +120,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {productLinks.map((link, index) => (
                   <li key={index}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-300 hover:text-purple-400 transition-colors duration-300 group"
                     >
@@ -144,22 +138,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Company */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6 text-white">Company</h3>
-              <ul className="space-y-3">
-                {companyLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link 
-                      href={link.href}
-                      className="text-gray-300 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 inline-block transform"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+
 
             {/* Services */}
             <div>
@@ -167,7 +146,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {serviceLinks.map((link, index) => (
                   <li key={index}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-300 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 inline-block transform"
                     >
@@ -206,7 +185,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 bg-gray-900/50">
           <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              
+
               {/* Copyright */}
               <div className="text-gray-400 text-sm">
                 © {currentYear} nNur. All rights reserved. Empowering secure digital transformation.
@@ -215,7 +194,7 @@ const Footer = () => {
               {/* Legal Links */}
               <div className="flex flex-wrap justify-center space-x-6">
                 {legalLinks.map((link, index) => (
-                  <Link 
+                  <Link
                     key={index}
                     href={link.href}
                     className="text-gray-400 hover:text-purple-400 text-sm transition-colors duration-300"

@@ -67,7 +67,7 @@ const HeroSection = () => {
 
             {/* Enhanced Description */}
             <div className={`max-w-4xl lg:mx-0 ${styles.animateZoomIn}`} style={{ animationDelay: '0.6s' }}>
-              <div className="min-h-[4rem] sm:min-h-[5rem] lg:min-h-[6rem] flex items-start decrypted-text-container">
+              <div style={{ minHeight: '6rem', display: 'flex', alignItems: 'flex-start' }} className="decrypted-text-container">
                 <DecryptedText
                   text="Protect your digital assets with robust security, regulatory compliance, and proactive risk management."
                   className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"

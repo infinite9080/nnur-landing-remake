@@ -7,10 +7,12 @@ const styles = {
   wrapper: {
     display: 'inline-block',
     whiteSpace: 'pre-wrap' as 'pre-wrap',
-    willChange: 'contents',
-    contain: 'layout style',
+    willChange: 'transform',
+    contain: 'layout style paint',
     minHeight: '1em',
-    lineHeight: 'inherit'
+    lineHeight: 'inherit',
+    width: '100%',
+    position: 'relative' as 'relative'
   },
   srOnly: {
     position: 'absolute' as 'absolute',
@@ -21,6 +23,12 @@ const styles = {
     overflow: 'hidden',
     clip: 'rect(0,0,0,0)',
     border: 0
+  },
+  textContainer: {
+    display: 'block',
+    width: '100%',
+    minHeight: 'inherit',
+    position: 'relative' as 'relative'
   }
 };
 
@@ -208,20 +216,22 @@ export default function DecryptedText({
       : {};
 
   return (
-    <motion.span className={parentClassName} ref={containerRef} style={styles.wrapper} {...hoverProps} {...props}>
-      <span style={styles.srOnly}>{displayText}</span>
+    <motion.div className={parentClassName} ref={containerRef} style={styles.wrapper} {...hoverProps} {...props}>
+      <span style={styles.srOnly}>{text}</span>
 
-      <span aria-hidden="true">
-        {displayText.split('').map((char, index) => {
-          const isRevealedOrDone = revealedIndices.has(index) || !isScrambling || !isHovering;
+      <div aria-hidden="true" style={styles.textContainer}>
+        <span className={className}>
+          {displayText.split('').map((char, index) => {
+            const isRevealedOrDone = revealedIndices.has(index) || !isScrambling || !isHovering;
 
-          return (
-            <span key={index} className={isRevealedOrDone ? className : encryptedClassName}>
-              {char}
-            </span>
-          );
-        })}
-      </span>
-    </motion.span>
+            return (
+              <span key={index} className={isRevealedOrDone ? '' : encryptedClassName} style={{ display: 'inline' }}>
+                {char}
+              </span>
+            );
+          })}
+        </span>
+      </div>
+    </motion.div>
   );
 }

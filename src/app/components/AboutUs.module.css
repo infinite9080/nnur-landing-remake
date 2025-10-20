@@ -1,163 +1,961 @@
-/* Custom styles for AboutUs ProfileCards */
-.profileCardOverride .pc-details h3 {
-  color: #ffffff !important;
-  background-image: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-  background-clip: initial !important;
-  -webkit-background-clip: initial !important;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9)) !important;
+/* =============================================== */
+/* OUR MOTTO - SPLIT PANEL DESIGN                  */
+/* =============================================== */
+.mottoSection {
+  padding: 4rem 1rem 5rem 1rem;
 }
 
-.profileCardOverride .pc-details p {
-  color: #ffffff !important;
-  background-image: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-  background-clip: initial !important;
-  -webkit-background-clip: initial !important;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9)) !important;
+.mottoSectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-/* Make avatar images very small to show more text area */
-.profileCardOverride .avatar {
-  width: 40% !important;
-  transform: translateX(-50%) scale(0.5) !important;
-  bottom: 25px !important;
+.mottoSectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1rem;
 }
 
-/* Move text much higher and make it more prominent */
-.profileCardOverride .pc-details {
-  top: 0.5em !important;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(25px);
-  border-radius: 15px;
-  padding: 25px 20px;
-  margin: 0 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.mottoSectionSubtitle {
+  color: #6b7280;
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Adjust text sizes for better visibility */
-.profileCardOverride .pc-details h3 {
-  font-size: min(3.5svh, 2em) !important;
-  margin-bottom: 8px !important;
-  font-weight: 700 !important;
+.mottoPanelContainer {
+  position: relative;
+  height: 500px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  display: flex;
 }
 
-.profileCardOverride .pc-details p {
-  font-size: 16px !important;
-  top: 0px !important;
-  font-weight: 600 !important;
-}
-
-/* Improve overall text contrast */
-.profileCardOverride .pc-details h3,
-.profileCardOverride .pc-details p {
+.mottoPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
   position: relative;
 }
 
-/* Add more space at the bottom for text and reduce image visibility at top */
-.profileCardOverride .pc-avatar-content::before {
+.mottoPanel:hover {
+  flex: 2;
+}
+
+.mottoPanel1 {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+
+.mottoPanel2 {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+}
+
+.mottoPanel3 {
+  background: linear-gradient(135deg, #ec4899, #f97316);
+}
+
+.mottoPanelContent {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mottoNumber {
+  font-size: 4rem;
+  font-weight: 900;
+  opacity: 0.3;
+  line-height: 1;
+  transition: transform 0.5s ease;
+}
+
+.mottoPanel:hover .mottoNumber {
+  transform: translateY(-10px);
+}
+
+.mottoText {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+.mottoPanel:hover .mottoText {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .mottoPanelContainer {
+    flex-direction: column;
+    height: 600px;
+  }
+  .mottoPanel:hover {
+    flex: 2;
+  }
+}
+
+/* =============================================== */
+/* WHY CHOOSE US - HORIZONTAL TIMELINE            */
+/* =============================================== */
+.whyChooseSection {
+  padding: 5rem 1rem;
+}
+
+.whySectionHeader {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.whySectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.whySectionSubtitle {
+  color: #6b7280;
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.whyTimelineContainer {
+  position: relative;
+}
+
+.whyTimelineLine {
+  display: none; /* Hidden by default, only shown on larger screens */
+}
+
+.whyTimelineGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.whyTimelineItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.whyIconCircle {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 4px solid white;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.whyTimelineItem:hover .whyIconCircle {
+  transform: scale(1.1);
+}
+
+.whyIconInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #7030a1, #9d4edd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whyItemTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.whyItemDescription {
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+@media (min-width: 1024px) {
+  .whyTimelineLine {
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background-color: #e5e7eb;
+    z-index: 1;
+  }
+  
+  .whyTimelineGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =============================================== */
+/* OUR FOCUS - INTERACTIVE TABS WITH STATS         */
+/* =============================================== */
+.focusSection {
+  padding: 5rem 1rem;
+}
+
+.focusSectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.focusSectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.focusSectionSubtitle {
+  color: #6b7280;
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.focusTabNav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: #e5e7eb;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.focusTabButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: #4b5563;
+}
+
+.focusTabButton.active {
+  background-color: #ffffff;
+  color: #7030a1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.focusStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  animation: focusFadeSlideUp 0.5s ease-out forwards;
+}
+
+@keyframes focusFadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.focusStatItem {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.focusStatItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+  border-color: #d8b4fe;
+}
+
+.focusStatIconBox {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  background: #f3e8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.focusStatLabel {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.focusStatValue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.focusStatLine {
+  height: 2px;
+  width: 2rem;
+  background-color: #c084fc;
+}
+
+.focusStatNumber {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #7030a1;
+}
+
+/* =============================================== */
+/* UTILITY & PROFILE CARD STYLES                   */
+/* =============================================== */
+.stableGrid {
+  contain: layout;
+}
+
+/* --- FIXED PROFILE CARD STYLES --- */
+
+/* Text color and shadow overrides */
+:global(.profileCardOverride .pc-details h3),
+:global(.profileCardOverride .pc-details p) {
+  color: #ffffff !important;
+  background-image: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* FIXED: Make avatar larger and position it correctly */
+:global(.profileCardOverride .avatar) {
+  width: 80% !important; /* Made avatar much larger */
+  transform: translateX(-50%) !important; /* Removed scale(0.5) */
+  bottom: 8rem !important; /* Positioned higher on the card */
+}
+
+/* FIXED: Move text lower to make room for the avatar */
+:global(.profileCardOverride .pc-details) {
+  position: absolute !important;
+  bottom: 1.5rem !important; /* Anchored to the bottom */
+  left: 1rem !important;
+  right: 1rem !important;
+  top: auto !important; /* Removed top: 0.5em */
+  
+  /* Removed visual clutter for a cleaner look */
+  background: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+:global(.profileCardOverride .pc-details h3) {
+  font-size: 1.75em !important;
+  margin-bottom: 4px !important;
+  font-weight: 700 !important;
+}
+
+:global(.profileCardOverride .pc-details p) {
+  font-size: 1em !important;
+  top: 0px !important;
+  font-weight: 500 !important;
+  opacity: 0.9;
+}
+
+/* Masking to fade the bottom of the avatar into the text */
+:global(.profileCardOverride .pc-avatar-content::before) {
   mask: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      rgba(0, 0, 0, 1) 45%,
-      rgba(0, 0, 0, 1) 100%) !important;
-}
-
-/* Make text even more prominent with better contrast */
-.profileCardOverride .pc-details h3,
-.profileCardOverride .pc-details p {
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7) !important;
-  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.9)) !important;
-}
-
-/* Override hover and active states to prevent rainbow colors */
-.profileCardOverride:hover .pc-details h3,
-.profileCardOverride.active .pc-details h3,
-.profileCardOverride .pc-card:hover .pc-details h3,
-.profileCardOverride .pc-card.active .pc-details h3 {
-  color: #ffffff !important;
-  background-image: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-  background-clip: initial !important;
-  -webkit-background-clip: initial !important;
-}
-
-.profileCardOverride:hover .pc-details p,
-.profileCardOverride.active .pc-details p,
-.profileCardOverride .pc-card:hover .pc-details p,
-.profileCardOverride .pc-card.active .pc-details p {
-  color: #ffffff !important;
-  background-image: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-  background-clip: initial !important;
-  -webkit-background-clip: initial !important;
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 70%,
+      rgba(0, 0, 0, 0) 95%) !important;
 }
 
 /* Disable ALL shine/holographic effects */
-.profileCardOverride .pc-shine {
+:global(.profileCardOverride .pc-shine),
+:global(.profileCardOverride .pc-glare) {
   display: none !important;
 }
 
-.profileCardOverride .pc-glare {
-  display: none !important;
+.carouselContent {
+  animation: fadeIn 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
-.profileCardOverride .pc-shine::before,
-.profileCardOverride .pc-shine::after {
-  display: none !important;
+/* =============================================== */
+/* OUR FOCUS - INTERACTIVE NEURAL NETWORK         */
+/* =============================================== */
+.neuralNetwork {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  margin-top: 3rem;
+  overflow: hidden;
 }
 
-/* Disable all hover shine effects */
-.profileCardOverride:hover .pc-shine,
-.profileCardOverride.active .pc-shine,
-.profileCardOverride .pc-card:hover .pc-shine,
-.profileCardOverride .pc-card.active .pc-shine {
-  display: none !important;
-  opacity: 0 !important;
-  filter: none !important;
-  animation: none !important;
+/* Connection SVG */
+.connectionSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
-.profileCardOverride:hover .pc-glare,
-.profileCardOverride.active .pc-glare,
-.profileCardOverride .pc-card:hover .pc-glare,
-.profileCardOverride .pc-card.active .pc-glare {
-  display: none !important;
-  opacity: 0 !important;
-  background: none !important;
+.connectionLine {
+  stroke-dasharray: 10 5;
+  animation: connectionPulse 4s ease-in-out infinite;
 }
 
-/* Remove any background animations */
-.profileCardOverride .pc-card {
-  animation: none !important;
-  background-image: none !important;
+@keyframes connectionPulse {
+  0%, 100% { 
+    stroke-dashoffset: 0; 
+    opacity: 0.6; 
+  }
+  50% { 
+    stroke-dashoffset: 15; 
+    opacity: 1; 
+  }
 }
 
-.profileCardOverride:hover .pc-card,
-.profileCardOverride.active .pc-card {
-  animation: none !important;
-  background-image: none !important;
+/* Focus Nodes */
+.focusNode {
+  position: absolute;
+  width: 280px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Mobile centering fixes */
-@media (max-width: 768px) {
-  .profileCardOverride {
-    margin: 0 auto !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 320px !important;
+.focusNode:hover {
+  transform: scale(1.05) translateY(-10px);
+  z-index: 20;
+}
+
+/* Node Core */
+.nodeCore {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  border: 3px solid rgba(139, 92, 246, 0.3);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+  transition: all 0.4s ease;
+}
+
+.focusNode:hover .nodeCore {
+  border-color: rgba(139, 92, 246, 0.8);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+  transform: scale(1.1);
+}
+
+.nodeIcon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.focusNode:hover .nodeIcon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Node Ripple Effect */
+.nodeRipple {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  animation: nodeRipple 3s ease-out infinite;
+}
+
+@keyframes nodeRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Node Content */
+.nodeContent {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.focusNode:hover .nodeContent {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.nodeTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Node Metrics */
+.nodeMetrics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* Node Features */
+.nodeFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.nodeFeatures span {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.focusNode:hover .nodeFeatures span {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Data Particles */
+.dataParticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dataParticle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #8b5cf6;
+  animation: dataFloat 8s ease-in-out infinite;
+}
+
+.dataParticle:nth-child(1) { animation-delay: 0s; }
+.dataParticle:nth-child(2) { animation-delay: 1.6s; }
+.dataParticle:nth-child(3) { animation-delay: 3.2s; }
+.dataParticle:nth-child(4) { animation-delay: 4.8s; }
+.dataParticle:nth-child(5) { animation-delay: 6.4s; }
+
+@keyframes dataFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.6; 
+  }
+  25% { 
+    transform: translateY(-20px) rotate(90deg); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(180deg); 
+    opacity: 0.8; 
+  }
+  75% { 
+    transform: translateY(-30px) rotate(270deg); 
+    opacity: 1; 
+  }
+}
+
+/* Central Energy Hub */
+.energyHub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  z-index: 5;
+}
+
+.hubCore {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #8b5cf6, #a855f7);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+  animation: hubPulse 4s ease-in-out infinite;
+}
+
+.hubRing1, .hubRing2, .hubRing3 {
+  position: absolute;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hubRing1 {
+  width: 100px;
+  height: 100px;
+  animation: hubRing 6s linear infinite;
+}
+
+.hubRing2 {
+  width: 140px;
+  height: 140px;
+  animation: hubRing 8s linear infinite reverse;
+}
+
+.hubRing3 {
+  width: 180px;
+  height: 180px;
+  animation: hubRing 10s linear infinite;
+}
+
+@keyframes hubPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6); 
+  }
+  50% { 
+    transform: scale(1.1); 
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); 
+  }
+}
+
+@keyframes hubRing {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .focusGalaxy {
+    height: 500px;
   }
   
-  /* Ensure the profile card container is centered */
-  .profileCardOverride .pc-card {
-    margin: 0 auto !important;
-    display: block !important;
+  .galaxyCore {
+    width: 100px;
+    height: 100px;
   }
   
-  /* Center the entire profile card component */
-  .profileCardOverride {
-    text-align: center !important;
+  .coreText {
+    font-size: 0.9rem;
+  }
+  
+  .orbitalRing1 {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .orbitalRing2 {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .orbitalRing3 {
+    width: 450px;
+    height: 450px;
+  }
+  
+  .focusOrbit1 {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .focusOrbit2 {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .focusOrbit3 {
+    width: 450px;
+    height: 450px;
+  }
+  
+  .focusPlanet {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    right: -30px;
+  }
+  
+  .planetIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .planetInfo {
+    min-width: 180px;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .focusGalaxy {
+    height: 400px;
+  }
+  
+  .galaxyCore {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .coreText {
+    font-size: 0.8rem;
+  }
+  
+  .orbitalRing1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orbitalRing2 {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .orbitalRing3 {
+    width: 360px;
+    height: 360px;
+  }
+  
+  .focusOrbit1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .focusOrbit2 {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .focusOrbit3 {
+    width: 360px;
+    height: 360px;
+  }
+  
+  .focusPlanet {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    right: -25px;
+  }
+  
+  .planetIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .planetInfo {
+    min-width: 160px;
+    padding: 0.5rem;
+  }
+  
+  .planetInfo h3 {
+    font-size: 0.9rem;
+  }
+  
+  .planetDetails span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .neuralNetwork {
+    height: 600px;
+  }
+  
+  .focusNode {
+    width: 250px;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 2rem auto;
+    display: block;
+  }
+  
+  .connectionSvg {
+    display: none;
+  }
+  
+  .energyHub {
+    display: none;
+  }
+  
+  .dataParticles {
+    display: none;
+  }
+  
+  .nodeCore {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .nodeIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .nodeContent {
+    padding: 1.25rem;
+  }
+  
+  .nodeTitle {
+    font-size: 1.125rem;
+  }
+  
+  .metricValue {
+    font-size: 1.25rem;
+  }
+  
+  .metricLabel {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .neuralNetwork {
+    height: auto;
+    padding: 2rem 0;
+  }
+  
+  .focusNode {
+    width: 100%;
+    max-width: 300px;
+    margin: 1.5rem auto;
+  }
+  
+  .nodeCore {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .nodeIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .nodeContent {
+    padding: 1rem;
+  }
+  
+  .nodeTitle {
+    font-size: 1rem;
+  }
+  
+  .nodeMetrics {
+    gap: 0.5rem;
+  }
+  
+  .metricValue {
+    font-size: 1.125rem;
+  }
+  
+  .metricLabel {
+    font-size: 0.65rem;
+  }
+  
+  .nodeFeatures span {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
   }
 }

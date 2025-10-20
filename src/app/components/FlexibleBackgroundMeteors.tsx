@@ -17,7 +17,6 @@ export default function FlexibleBackgroundMeteors({
   children,
 }: FlexibleBackgroundMeteorsProps) {
   const [beams, setBeams] = useState<Beam[]>([]);
-  const [containerHeight, setContainerHeight] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const gridSize = 40;
@@ -56,23 +55,7 @@ export default function FlexibleBackgroundMeteors({
     }
   }, []);
 
-  useEffect(() => {
-    const updateHeight = () => {
-      if (containerRef.current) {
-        setContainerHeight(containerRef.current.scrollHeight);
-      }
-    };
 
-    updateHeight();
-    
-    // Update height when content changes
-    const observer = new ResizeObserver(updateHeight);
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [children]);
 
   useEffect(() => {
     const generateBeams = () => {
@@ -97,31 +80,27 @@ export default function FlexibleBackgroundMeteors({
   return (
     <div 
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-white dark:bg-black min-h-screen"
-      style={{ minHeight: containerHeight || '100vh' }}
+      className="relative w-full overflow-hidden bg-white dark:bg-black"
     >
       <div
-        className="absolute inset-0 w-full"
+        className="absolute inset-0 w-full h-full"
         style={{
-          height: Math.max(containerHeight, windowHeight || 800),
           backgroundSize: `${gridSize}px ${gridSize}px`,
           backgroundImage:
             "linear-gradient(to right, #e4e4e7 1px, transparent 1px), linear-gradient(to bottom, #e4e4e7 1px, transparent 1px)",
         }}
       />
       <div
-        className="absolute inset-0 w-full dark:block hidden"
+        className="absolute inset-0 w-full h-full dark:block hidden"
         style={{
-          height: Math.max(containerHeight, windowHeight || 800),
           backgroundSize: `${gridSize}px ${gridSize}px`,
           backgroundImage:
             "linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #024e6b  1px, transparent 1px)",
         }}
       />
       <div
-        className="pointer-events-none absolute inset-0 w-full bg-white dark:bg-black 
+        className="pointer-events-none absolute inset-0 w-full h-full bg-white dark:bg-black 
         [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        style={{ height: Math.max(containerHeight, windowHeight || 800) }}
       />
       {beams.map((b) => (
         <motion.div
@@ -129,7 +108,7 @@ export default function FlexibleBackgroundMeteors({
           className="absolute top-0"
           style={{ left: b.x, zIndex: 2 }}
           initial={{ y: -150 }}
-          animate={{ y: Math.max(containerHeight + 150, (windowHeight || 800) + 150) }}
+          animate={{ y: (windowHeight || 800) + 150 }}
           transition={{
             duration: b.duration,
             ease: "linear",
