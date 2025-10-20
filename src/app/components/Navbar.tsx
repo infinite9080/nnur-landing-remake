@@ -117,7 +117,7 @@ const Navbar = () => {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} fixed z-50`}>
       {/* Background with blur effect */}
       <div className={`absolute inset-0 transition-all duration-500 ${isScrolled
-        ? 'bg-white/95 backdrop-blur-md border-b border-purple-200/40 shadow-2xl'
+        ? 'bg-white/95 backdrop-blur-md border-b border-purple-200/40 shadow-2xl rounded-3xl lg:rounded-[28px]'
         : 'bg-white/98 backdrop-blur-sm border-b border-gray-200/50 shadow-lg'
         }`} />
 
@@ -128,7 +128,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center">
               <img
                 src="/nNur-Logo-Icon.svg"
                 alt="nNur Logo"

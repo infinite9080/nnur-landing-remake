@@ -206,17 +206,6 @@ const AboutUs = () => {
                                 filter="url(#glow)"
                             />
 
-                            {/* Pulse dots traveling along paths */}
-                            <circle r="4" fill="#8b5cf6" className={styles.pulseNode1}>
-                                <animateMotion dur="3s" repeatCount="indefinite">
-                                    <mpath href="#path1" />
-                                </animateMotion>
-                            </circle>
-                            <circle r="4" fill="#a855f7" className={styles.pulseNode2}>
-                                <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
-                                    <mpath href="#path2" />
-                                </animateMotion>
-                            </circle>
                         </svg>
 
                         {/* Focus Nodes */}

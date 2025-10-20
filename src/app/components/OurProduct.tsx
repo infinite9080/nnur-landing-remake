@@ -78,7 +78,7 @@ const OurProduct = () => {
           />
           <div className="max-w-4xl mx-auto mt-10" style={{ minHeight: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <DecryptedText
-              text="Discover our comprehensive suite of cybersecurity and compliance products designed to protect and empower your business operations."
+              text="Discover our comprehensive sets of cybersecurity and compliance products designed to protect and empower your business operations."
               className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
               animateOn="view"
               speed={25}

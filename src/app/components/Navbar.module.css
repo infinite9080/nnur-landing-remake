@@ -31,8 +31,8 @@
   margin: 1rem 6rem 0 6rem;
   top: 1rem;
   box-shadow: 0 10px 40px rgba(112, 48, 161, 0.25);
-  /* --- ADDED --- This rounds the corners */
-  border-radius: 50px;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 
@@ -215,8 +215,8 @@
     transform: scale(0.90) translateY(0);
     margin: 0 8rem;
     top: 1.5rem;
-    /* --- ADDED --- */
-    border-radius: 50px;
+    border-radius: 28px;
+    overflow: hidden;
   }
 
   .navbar.scrolled .logoText {
@@ -229,8 +229,8 @@
     transform: scale(0.92) translateY(0);
     margin: 0 6rem;
     top: 1rem;
-    /* --- ADDED --- */
-    border-radius: 50px;
+    border-radius: 24px;
+    overflow: hidden;
   }
 
   .navbar.scrolled .logoText {
@@ -247,8 +247,8 @@
     transform: scale(0.96) translateY(0);
     margin: 0 2rem;
     top: 0.75rem;
-    /* --- ADDED --- */
-    border-radius: 50px;
+    border-radius: 20px;
+    overflow: hidden;
   }
 
   .navbar.scrolled .logoText {
@@ -269,8 +269,8 @@
     transform: scale(0.98) translateY(0);
     margin: 0 1rem;
     top: 0.5rem;
-    /* --- ADDED --- */
-    border-radius: 50px;
+    border-radius: 18px;
+    overflow: hidden;
     box-shadow: 0 4px 20px rgba(112, 48, 161, 0.15);
   }
 
