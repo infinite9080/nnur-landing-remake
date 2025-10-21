@@ -4,6 +4,7 @@ import React from "react";
 import { Shield, FileCheck, AlertTriangle, Zap } from "lucide-react";
 import TrueFocus from "../../components/TrueFocus";
 import DecryptedText from "../../components/DecryptedText";
+import Interactive3DCamera from "../../components/Interactive3DCamera";
 
 const WhatWeDo = () => {
   return (
@@ -19,7 +20,10 @@ const WhatWeDo = () => {
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="max-w-4xl mx-auto mt-10" style={{ minHeight: '6rem', display: 'flex', alignItems: 'center' }}>
+          <div
+            className="max-w-4xl mx-auto mt-10"
+            style={{ minHeight: "6rem", display: "flex", alignItems: "center" }}
+          >
             <DecryptedText
               text="We provide comprehensive cybersecurity and compliance solutions to protect your digital assets and ensure regulatory adherence across all business operations."
               className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
@@ -109,7 +113,8 @@ const WhatWeDo = () => {
                   Advanced Security
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Multi-layered protection systems designed to defend against sophisticated cyber attacks.
+                  Multi-layered protection systems designed to defend against
+                  sophisticated cyber attacks.
                 </p>
               </div>
             </div>
@@ -124,7 +129,8 @@ const WhatWeDo = () => {
                   Compliance Management
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Expert guidance on regulatory requirements including GDPR, HIPAA, and SOX.
+                  Expert guidance on regulatory requirements including GDPR,
+                  HIPAA, and SOX.
                 </p>
               </div>
             </div>
@@ -139,7 +145,8 @@ const WhatWeDo = () => {
                   Risk Assessment
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Proactive risk assessment and management strategies to minimize vulnerabilities.
+                  Proactive risk assessment and management strategies to
+                  minimize vulnerabilities.
                 </p>
               </div>
             </div>
@@ -154,22 +161,20 @@ const WhatWeDo = () => {
                   24/7 Monitoring
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Continuous monitoring and rapid response to security threats with advanced detection.
+                  Continuous monitoring and rapid response to security threats
+                  with advanced detection.
                 </p>
               </div>
             </div>
 
             {/* Central Feature Image */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="relative w-96 h-96 xl:w-[450px] xl:h-[450px] overflow-hidden">
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <img
-                    src="/cctv.gif"
-                    alt="Security Background"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            {/* Central 3D CCTV Animation */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="relative w-96 h-96 xl:w-[28rem] xl:h-[28rem]">
+                <Interactive3DCamera />
+
+                {/* Background Glow Effect */}
+                {/* <div className="absolute inset-0 bg-[black] rounded-full -z-10"></div> */}
               </div>
             </div>
           </div>
