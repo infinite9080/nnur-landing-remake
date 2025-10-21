@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare, Linkedin, Facebook, Instagram, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+  MessageSquare,
+  Linkedin,
+  Facebook,
+  Instagram,
+  MessageCircle,
+} from "lucide-react";
 import TrueFocus from "../../components/TrueFocus";
 import DecryptedText from "../../components/DecryptedText";
 import styles from "./ContactSection.module.css";
@@ -17,7 +28,11 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -43,19 +58,40 @@ export default function ContactSection() {
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="max-w-4xl mx-auto mt-6 sm:mt-10" style={{ minHeight: '6rem', display: 'flex', alignItems: 'center' }}>
-            <DecryptedText
-              text="Ready to secure your business? Get in touch with our cybersecurity experts and let's discuss how we can protect and empower your organization."
-              className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
-              animateOn="view"
-              speed={25}
-              sequential={true}
-              revealDirection="start"
-            />
+          <div
+            className="max-w-4xl mx-auto mt-6 sm:mt-10"
+            style={{
+              minHeight: "8rem",
+              display: "flex",
+              alignItems: "center",
+              contain: "layout",
+              transform: "translateZ(0)",
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                position: "relative",
+                contain: "layout style",
+                minHeight: "6rem",
+              }}
+            >
+              <DecryptedText
+                text="Ready to secure your business? Get in touch with our cybersecurity experts and let's discuss how we can protect and empower your organization."
+                className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
+                parentClassName="w-full"
+                animateOn="view"
+                speed={25}
+                sequential={true}
+                revealDirection="start"
+              />
+            </div>
           </div>
         </div>
 
-        <div className={`grid lg:grid-cols-2 gap-12 ${styles.contactContainer}`}>
+        <div
+          className={`grid lg:grid-cols-2 gap-12 ${styles.contactContainer}`}
+        >
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Methods */}
@@ -73,7 +109,6 @@ export default function ContactSection() {
                     </h4>
                     <p className="text-gray-600 leading-relaxed">
                       sales@nnur.ca
-
                     </p>
                   </div>
                 </div>
@@ -233,7 +268,10 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-700 mb-3"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -249,7 +287,10 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-gray-700 mb-3"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -267,7 +308,10 @@ export default function ContactSection() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-gray-700 mb-3"
+                    >
                       Phone Number
                     </label>
                     <input
@@ -282,7 +326,10 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-semibold text-gray-700 mb-3"
+                    >
                       Company Name
                     </label>
                     <input
@@ -299,7 +346,10 @@ export default function ContactSection() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-semibold text-gray-700 mb-3"
+                    >
                       Subject *
                     </label>
                     <input
@@ -315,7 +365,10 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-semibold text-gray-700 mb-3"
+                    >
                       Service Interest
                     </label>
                     <select
@@ -327,10 +380,14 @@ export default function ContactSection() {
                     >
                       <option value="">Select a service</option>
                       <option value="nAMS">nAMS - Audit Management</option>
-                      <option value="nIAM">nIAM - Identity & Access Management</option>
+                      <option value="nIAM">
+                        nIAM - Identity & Access Management
+                      </option>
                       <option value="nErim">nErim - Risk Management</option>
                       <option value="nBoard">nBoard - Board Governance</option>
-                      <option value="nISMA">nISMA - Security Maturity Assessment</option>
+                      <option value="nISMA">
+                        nISMA - Security Maturity Assessment
+                      </option>
                       <option value="consultation">General Consultation</option>
                       <option value="other">Other</option>
                     </select>
@@ -338,7 +395,10 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-semibold text-gray-700 mb-3"
+                  >
                     Message *
                   </label>
                   <textarea

@@ -1,0 +1,25 @@
+{
+  "name": "nNur Inc - Cybersecurity & Compliance Solutions",
+  "short_name": "nNur Inc",
+  "description": "Leading cybersecurity and compliance solutions provider",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7030a1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/nNur-Logo-Icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/nNur Logo-Color-156x47.png",
+      "sizes": "156x47",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "security", "technology"],
+  "lang": "en-US"
+}

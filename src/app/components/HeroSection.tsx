@@ -4,7 +4,16 @@ import React from "react";
 import styles from "./Hero.module.css";
 import DecryptedText from "../../components/DecryptedText";
 import TrueFocus from "../../components/TrueFocus";
-import { CircleCheck, Shield, Lock, Eye, Zap, ShieldCheck, FileCheck2, AlertTriangle } from "lucide-react";
+import {
+  CircleCheck,
+  Shield,
+  Lock,
+  Eye,
+  Zap,
+  ShieldCheck,
+  FileCheck2,
+  AlertTriangle,
+} from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -27,13 +36,22 @@ const HeroSection = () => {
           <div className="absolute top-20 left-1/4 animate-pulse">
             <Shield className="w-8 h-8 text-[#7030a1]/20" />
           </div>
-          <div className="absolute top-40 right-1/4 animate-bounce" style={{ animationDelay: '1s' }}>
+          <div
+            className="absolute top-40 right-1/4 animate-bounce"
+            style={{ animationDelay: "1s" }}
+          >
             <Lock className="w-6 h-6 text-[#7030a1]/30" />
           </div>
-          <div className="absolute bottom-32 left-1/3 animate-pulse" style={{ animationDelay: '2s' }}>
+          <div
+            className="absolute bottom-32 left-1/3 animate-pulse"
+            style={{ animationDelay: "2s" }}
+          >
             <Eye className="w-7 h-7 text-[#7030a1]/25" />
           </div>
-          <div className="absolute bottom-20 right-1/3 animate-bounce" style={{ animationDelay: '0.5s' }}>
+          <div
+            className="absolute bottom-20 right-1/3 animate-bounce"
+            style={{ animationDelay: "0.5s" }}
+          >
             <Zap className="w-5 h-5 text-[#7030a1]/20" />
           </div>
         </div>
@@ -44,10 +62,10 @@ const HeroSection = () => {
         <div
           className="px-4 my-auto sm:px-6 lg:px-8"
           style={{
-            maxWidth: '1500px',
-            marginLeft: 'max(1rem, calc((100vw - 1500px) / 2 + 1rem))',
-            marginRight: 'auto',
-            width: '100%'
+            maxWidth: "1500px",
+            marginLeft: "max(1rem, calc((100vw - 1500px) / 2 + 1rem))",
+            marginRight: "auto",
+            width: "100%",
           }}
         >
           <div className="space-y-8 sm:space-y-10 lg:space-y-12">
@@ -66,8 +84,18 @@ const HeroSection = () => {
             </div>
 
             {/* Enhanced Description */}
-            <div className={`max-w-4xl lg:mx-0 ${styles.animateZoomIn}`} style={{ animationDelay: '0.6s' }}>
-              <div style={{ minHeight: '6rem', display: 'flex', alignItems: 'flex-start' }} className="decrypted-text-container">
+            <div
+              className={`max-w-4xl lg:mx-0 ${styles.animateZoomIn}`}
+              style={{ animationDelay: "0.6s" }}
+            >
+              <div
+                style={{
+                  minHeight: "6rem",
+                  display: "flex",
+                  alignItems: "flex-start",
+                }}
+                className="decrypted-text-container"
+              >
                 <DecryptedText
                   text="Protect your digital assets with robust security, regulatory compliance, and proactive risk management."
                   className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
@@ -80,55 +108,49 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Enhanced Interactive Security Features */}
-            {/* <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 ${styles.animateBounceIn}`} style={{ animationDelay: '0.9s' }}>
-              <div className="group relative bg-gradient-to-br from-white/95 to-white/85 backdrop-blur-sm p-6 lg:p-8 rounded-3xl shadow-xl border-2 border-white/40 hover:border-[#7030a1]/30 hover:shadow-2xl hover:scale-110 transition-all duration-500 cursor-pointer overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
-                    <ShieldCheck className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
-                  </div>
-                  <h3 className="text-sm lg:text-base font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors duration-300">
-                    Advanced Security
-                  </h3>
-                </div>
-              </div>
-
-              <div className="group relative bg-gradient-to-br from-white/95 to-white/85 backdrop-blur-sm p-6 lg:p-8 rounded-3xl shadow-xl border-2 border-white/40 hover:border-[#7030a1]/30 hover:shadow-2xl hover:scale-110 transition-all duration-500 cursor-pointer overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
-                    <FileCheck2 className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
-                  </div>
-                  <h3 className="text-sm lg:text-base font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors duration-300">
-                    Regulatory Compliance
-                  </h3>
-                </div>
-              </div>
-
-
-            </div> */}
-
             {/* Enhanced Trust Indicators */}
-            <div className={`flex flex-wrap gap-3 sm:gap-4 ${styles.animateRotateIn}`} style={{ animationDelay: '1.2s' }}>
+            <div
+              className={`flex flex-wrap gap-3 sm:gap-4 ${styles.animateRotateIn}`}
+              style={{ animationDelay: "1.2s" }}
+            >
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <CircleCheck size={20} className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin" />
-                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">ISO 27001</span>
+                <CircleCheck
+                  size={20}
+                  className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin"
+                />
+                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">
+                  ISO 27001
+                </span>
               </div>
 
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <CircleCheck size={20} className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin" />
-                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">SOC 2</span>
+                <CircleCheck
+                  size={20}
+                  className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin"
+                />
+                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">
+                  SOC 2
+                </span>
               </div>
 
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <CircleCheck size={20} className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin" />
-                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">24/7 Monitoring</span>
+                <CircleCheck
+                  size={20}
+                  className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin"
+                />
+                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">
+                  24/7 Monitoring
+                </span>
               </div>
 
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <CircleCheck size={20} className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin" />
-                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">99% Secure</span>
+                <CircleCheck
+                  size={20}
+                  className="text-[#7030a1] flex-shrink-0 group-hover:animate-spin"
+                />
+                <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">
+                  99% Secure
+                </span>
               </div>
             </div>
           </div>

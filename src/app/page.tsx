@@ -8,8 +8,6 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import FlexibleBackgroundMeteors from "./components/FlexibleBackgroundMeteors";
 
-
-
 export default function Home() {
   return (
     <div className="font-sans overflow-x-hidden">
@@ -17,9 +15,9 @@ export default function Home() {
       <div id="home">
         <HeroSection />
       </div>
-   
+
       <FlexibleBackgroundMeteors>
-      <div id="what-we-do">
+        <div id="what-we-do">
           <WhatWeDo />
         </div>
         <div id="our-products">
