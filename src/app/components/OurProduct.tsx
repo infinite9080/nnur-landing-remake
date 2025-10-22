@@ -72,24 +72,24 @@ const OurProduct = () => {
         style={{ maxWidth: "1500px" }}
       >
         {/* Section Title */}
-        <div className="text-center mb-20 lg:mb-28">
+        <div className="text-center mb-12 lg:mb-16">
           <TrueFocus
             sentence="Our Products"
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="max-w-4xl mx-auto mt-10">
-            <div className="min-h-[6rem] flex items-start justify-center pt-4">
-              <DecryptedText
-                text="Discover our comprehensive sets of cybersecurity and compliance products designed to protect and empower your business operations."
-                className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light text-center"
-                parentClassName="w-full"
-                animateOn="view"
-                speed={25}
-                sequential={true}
-                revealDirection="start"
-              />
-            </div>
+          <div
+            className="max-w-3xl mx-auto mt-6"
+            style={{ minHeight: "2.5rem", display: "flex", alignItems: "center" }}
+          >
+            <DecryptedText
+              text="Discover our comprehensive sets of cybersecurity and compliance products designed to protect and empower your business operations."
+              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal"
+              animateOn="view"
+              speed={25}
+              sequential={true}
+              revealDirection="start"
+            />
           </div>
         </div>
 
@@ -220,20 +220,18 @@ const OurProduct = () => {
                   >
                     <button
                       onClick={() => setCurrentSlide(index)}
-                      className={`w-full px-6 py-4 text-left transition-all duration-300 rounded-lg ${
-                        currentSlide === index
-                          ? "bg-[#7030a1] text-white"
-                          : "bg-white text-gray-900 hover:bg-gray-50"
-                      }`}
+                      className={`w-full px-6 py-4 text-left transition-all duration-300 rounded-lg ${currentSlide === index
+                        ? "bg-[#7030a1] text-white"
+                        : "bg-white text-gray-900 hover:bg-gray-50"
+                        }`}
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
                           <div
-                            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                              currentSlide === index
-                                ? "bg-white/20"
-                                : "bg-gray-100"
-                            }`}
+                            className={`w-12 h-12 rounded-lg flex items-center justify-center ${currentSlide === index
+                              ? "bg-white/20"
+                              : "bg-gray-100"
+                              }`}
                           >
                             <img
                               src={product.image}
@@ -246,9 +244,8 @@ const OurProduct = () => {
                           </h6>
                         </div>
                         <svg
-                          className={`w-5 h-5 transition-transform duration-300 ${
-                            currentSlide === index ? "rotate-180" : ""
-                          }`}
+                          className={`w-5 h-5 transition-transform duration-300 ${currentSlide === index ? "rotate-180" : ""
+                            }`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -325,34 +322,104 @@ const OurProduct = () => {
             </div>
 
             {/* Product Preview Carousel */}
-            <div className="relative hidden w-1/2 overflow-hidden rounded-xl bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 md:flex md:flex-col">
+            <div className="relative hidden w-1/2 overflow-hidden rounded-xl bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 md:flex md:flex-col min-h-[600px]">
               {/* This flex-grow div ensures the content inside is centered in the available space */}
               <div className="flex-grow flex items-center justify-center p-8 relative overflow-hidden">
                 <div
                   key={currentSlide}
-                  className={`text-center ${styles.carouselContent}`}
+                  className={`text-center ${styles.carouselContent} w-full`}
                 >
-                  <div className="bg-white rounded-3xl w-32 h-32 flex items-center justify-center mx-auto mb-6 shadow-xl">
+                  <div className="bg-white rounded-3xl w-32 h-32 flex items-center justify-center mx-auto mb-6 shadow-xl border-4 border-[#7030a1]/10">
                     <img
                       src={PRODUCT_MENU_ITEMS[currentSlide].image}
                       alt={`${PRODUCT_MENU_ITEMS[currentSlide].title} Preview`}
                       className="w-20 h-20 object-contain"
                     />
                   </div>
-                  <h4 className="text-2xl font-bold text-[#7030a1] mb-3">
+                  <h4 className="text-3xl font-bold text-[#7030a1] mb-4">
                     {PRODUCT_MENU_ITEMS[currentSlide].title}
                   </h4>
-                  <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+                  <p className="text-gray-600 leading-relaxed max-w-md mx-auto mb-6 text-base">
                     {
                       [
-                        "Streamline your audit processes with automated workflows, comprehensive reporting, and real-time compliance tracking.",
-                        "Secure your digital infrastructure with advanced identity management, multi-factor authentication, and granular access controls.",
-                        "Transform your risk management strategy with intelligent threat detection, predictive analytics, and comprehensive vulnerability assessments.",
-                        "Revolutionize board operations with digital meeting management, secure document sharing, and collaborative decision-making tools.",
-                        "Elevate your security posture with comprehensive maturity assessments, benchmarking against industry standards, and actionable improvement roadmaps.",
+                        "Streamline your audit processes with automated workflows, comprehensive reporting, and real-time compliance tracking. Built for organizations that need to maintain rigorous audit standards.",
+                        "Secure your digital infrastructure with advanced identity management, multi-factor authentication, and granular access controls. Protect sensitive data while ensuring seamless user experiences.",
+                        "Transform your risk management strategy with intelligent threat detection, predictive analytics, and comprehensive vulnerability assessments. Stay ahead of emerging risks with data-driven insights.",
+                        "Revolutionize board operations with digital meeting management, secure document sharing, and collaborative decision-making tools. Enhance governance efficiency while maintaining security.",
+                        "Elevate your security posture with comprehensive maturity assessments, benchmarking against industry standards, and actionable improvement roadmaps. Build a robust security culture.",
                       ][currentSlide]
                     }
                   </p>
+
+                  {/* Key Features */}
+                  <div className="mb-6">
+                    <h5 className="text-lg font-semibold text-gray-800 mb-3">Key Features</h5>
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                      {
+                        [
+                          ["Automated Workflows", "Real-time Tracking", "Compliance Reports", "Risk Assessment"],
+                          ["Multi-factor Auth", "Access Controls", "Identity Management", "Single Sign-On"],
+                          ["Threat Detection", "Risk Analytics", "Vulnerability Scans", "Predictive Insights"],
+                          ["Digital Meetings", "Document Sharing", "Secure Collaboration", "Governance Tools"],
+                          ["Maturity Assessment", "Security Benchmarks", "Improvement Plans", "Culture Building"]
+                        ][currentSlide].map((feature, idx) => (
+                          <div key={idx} className="flex items-center text-gray-600">
+                            <div className="w-2 h-2 bg-[#7030a1] rounded-full mr-2 flex-shrink-0"></div>
+                            {feature}
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-white/50 rounded-lg p-3 text-center">
+                      <div className="text-2xl font-bold text-[#7030a1]">
+                        99.9%
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        Uptime SLA
+                      </div>
+                    </div>
+                    <div className="bg-white/50 rounded-lg p-3 text-center">
+                      <div className="text-2xl font-bold text-[#7030a1]">
+                        24/7
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        Support
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="mt-6">
+                    {PRODUCT_MENU_ITEMS[currentSlide].hasPage ? (
+                      <Link
+                        href={PRODUCT_MENU_ITEMS[currentSlide].link}
+                        className="inline-flex items-center px-6 py-3 bg-[#7030a1] text-white font-semibold rounded-lg hover:bg-[#5a2581] transition-colors duration-300 shadow-lg hover:shadow-xl"
+                      >
+                        Explore {PRODUCT_MENU_ITEMS[currentSlide].title}
+                        <svg
+                          className="ml-2 w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </Link>
+                    ) : (
+                      <span className="inline-flex items-center px-6 py-3 bg-gray-300 text-gray-500 font-semibold rounded-lg cursor-not-allowed">
+                        Coming Soon
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -362,9 +429,8 @@ const OurProduct = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`${styles.dot} ${
-                      currentSlide === index ? styles.active : ""
-                    }`}
+                    className={`${styles.dot} ${currentSlide === index ? styles.active : ""
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}

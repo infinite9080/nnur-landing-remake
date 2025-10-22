@@ -178,30 +178,24 @@ const ServicesSection = () => {
         style={{ maxWidth: "1500px" }}
       >
         {/* Section Title Container */}
-        <div className="text-center mb-16 sm:mb-20 lg:mb-28">
+        <div className="text-center mb-12 lg:mb-16">
           <TrueFocus
-            sentence="Our Sevices"
+            sentence="Our Services"
             borderColor="purple"
             blurAmount={0}
           />
-          <div className="mt-8 sm:mt-10">
-            <div
-              className="min-h-[6rem] flex items-start justify-center pt-4"
-              style={{
-                contain: "layout",
-                transform: "translateZ(0)",
-              }}
-            >
-              <DecryptedText
-                text="Comprehensive cybersecurity solutions designed to protect, detect, and respond to evolving digital threats across all aspects of your business infrastructure."
-                className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-light text-center"
-                parentClassName="w-full"
-                animateOn="view"
-                speed={25}
-                sequential={true}
-                revealDirection="start"
-              />
-            </div>
+          <div
+            className="max-w-3xl mx-auto mt-6"
+            style={{ minHeight: "2.5rem", display: "flex", alignItems: "center" }}
+          >
+            <DecryptedText
+              text="Comprehensive cybersecurity solutions to protect, detect, and respond to evolving threats across your entire business infrastructure."
+              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal"
+              animateOn="view"
+              speed={25}
+              sequential={true}
+              revealDirection="start"
+            />
           </div>
         </div>
 
@@ -214,11 +208,10 @@ const ServicesSection = () => {
                 <button
                   key={index}
                   onClick={() => setActiveCategory(index)}
-                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ${
-                    activeCategory === index
-                      ? "bg-gradient-to-r from-[#7030a1] to-[#9d4edd] text-white shadow-lg scale-105"
-                      : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#7030a1] border border-gray-200 hover:border-[#7030a1]/30 shadow-md hover:shadow-lg"
-                  }`}
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ${activeCategory === index
+                    ? "bg-gradient-to-r from-[#7030a1] to-[#9d4edd] text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#7030a1] border border-gray-200 hover:border-[#7030a1]/30 shadow-md hover:shadow-lg"
+                    }`}
                 >
                   <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="font-medium text-xs sm:text-sm lg:text-base whitespace-nowrap">

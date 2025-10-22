@@ -46,46 +46,30 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-24">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32">
       <div
         className="mx-auto px-4 sm:px-6 lg:px-8"
         style={{ maxWidth: "1500px" }}
       >
         {/* Section Title */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="text-center mb-12 lg:mb-16">
           <TrueFocus
             sentence="Contact Us"
             borderColor="purple"
             blurAmount={0}
           />
           <div
-            className="max-w-4xl mx-auto mt-6 sm:mt-10"
-            style={{
-              minHeight: "8rem",
-              display: "flex",
-              alignItems: "center",
-              contain: "layout",
-              transform: "translateZ(0)",
-            }}
+            className="max-w-3xl mx-auto mt-6"
+            style={{ minHeight: "2.5rem", display: "flex", alignItems: "center" }}
           >
-            <div
-              style={{
-                width: "100%",
-                position: "relative",
-                contain: "layout style",
-                minHeight: "6rem",
-              }}
-            >
-              <DecryptedText
-                text="Ready to secure your business? Get in touch with our cybersecurity experts and let's discuss how we can protect and empower your organization."
-                className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
-                parentClassName="w-full"
-                animateOn="view"
-                speed={25}
-                sequential={true}
-                revealDirection="start"
-              />
-            </div>
+            <DecryptedText
+              text="Ready to secure your business? Contact our cybersecurity experts to discuss how we can protect and empower your organization."
+              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal"
+              animateOn="view"
+              speed={25}
+              sequential={true}
+              revealDirection="start"
+            />
           </div>
         </div>
 

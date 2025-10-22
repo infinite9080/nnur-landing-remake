@@ -88,7 +88,7 @@ export default function CompliancePage() {
   return (
     <div className="font-sans overflow-x-hidden">
       <Navbar />
-      
+
       <FlexibleBackgroundMeteors>
         <section className="py-16 sm:py-24 lg:py-32">
           <div
@@ -234,7 +234,7 @@ export default function CompliancePage() {
           </div>
         </section>
       </FlexibleBackgroundMeteors>
-      
+
       <Footer />
     </div>
   );

@@ -12,14 +12,14 @@ const PrivacyPolicy = () => {
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-6 py-8">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          
+
           <div className="flex items-center space-x-4 mb-4">
             <div className="bg-purple-100 p-3 rounded-full">
               <Shield className="w-8 h-8 text-purple-600" />
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
       {/* Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="prose prose-lg max-w-none">
-          
+
           {/* Introduction */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
@@ -50,7 +50,7 @@ const PrivacyPolicy = () => {
           {/* Information We Collect */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Information We Collect</h2>
-            
+
             <h3 className="text-xl font-medium text-gray-800 mb-3">Personal Information</h3>
             <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-6">
               <li>Name, email address, and contact information</li>

@@ -73,7 +73,7 @@ const Interactive3DCamera: React.FC = () => {
           // Apply shadows
           object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
-              child.castShadow = true;
+              child.castShadow = false;
               child.receiveShadow = true;
             }
           });

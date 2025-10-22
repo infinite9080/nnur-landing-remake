@@ -132,7 +132,7 @@ const HeroSection = () => {
                   SOC 2
                 </span>
               </div>
-
+{/* 
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                 <CircleCheck
                   size={20}
@@ -151,7 +151,7 @@ const HeroSection = () => {
                 <span className="font-bold text-gray-800 group-hover:text-[#7030a1] transition-colors">
                   99% Secure
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
