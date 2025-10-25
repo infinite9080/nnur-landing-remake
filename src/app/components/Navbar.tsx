@@ -59,11 +59,11 @@ const Navbar = () => {
 
   // Navigation items
   const menuItems: MenuItem[] = [
-    { label: "Home", link: "#home", ariaLabel: "Go to home section" },
-    { label: "Our Products", link: "#our-products", ariaLabel: "Go to our products section" },
-    { label: "Our Services", link: "#our-services", ariaLabel: "Go to our services section" },
-    { label: "About Us", link: "#about-us", ariaLabel: "Go to about us section" },
-    { label: "Contact", link: "#contact", ariaLabel: "Go to contact section" },
+    { label: "Home", link: "/", ariaLabel: "Go to home page" },
+    { label: "Our Products", link: "/#our-products", ariaLabel: "Go to our products section" },
+    { label: "Our Services", link: "/#our-services", ariaLabel: "Go to our services section" },
+    { label: "About Us", link: "/#about-us", ariaLabel: "Go to about us section" },
+    { label: "Contact", link: "/#contact", ariaLabel: "Go to contact section" },
   ];
 
   // Social media links
@@ -110,7 +110,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {menuItems.map((item, index) => (
-              <a
+              <Link
                 key={index}
                 href={item.link}
                 className={`${styles.navLink} px-4 py-2 text-sm font-semibold relative group rounded-lg transition-all duration-300`}
@@ -118,7 +118,7 @@ const Navbar = () => {
               >
                 {item.label}
                 <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#7030a1] to-[#c77dff] transition-all duration-300 group-hover:w-full rounded-full" />
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -175,7 +175,7 @@ const Navbar = () => {
             {/* Navigation Links */}
             <div className="space-y-2">
               {menuItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
                   href={item.link}
                   className={`${styles.mobileNavLink} block px-4 py-3 text-lg font-semibold rounded-lg transition-all duration-300`}
@@ -184,7 +184,7 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
 

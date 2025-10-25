@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { AlertTriangle, Search, BarChart3, Target, Shield, FileText, ArrowRight, CheckCircle } from "lucide-react";
+import { AlertTriangle, Search, BarChart3, Target, Shield, FileText, ArrowRight, CheckCircle, ArrowLeft } from "lucide-react";
 import TrueFocus from "../../../components/TrueFocus";
 import DecryptedText from "../../../components/DecryptedText";
 import Navbar from "../../components/Navbar";
@@ -72,14 +72,25 @@ const benefits = [
 export default function RiskAssessmentPage() {
   return (
     <div className="font-sans overflow-x-hidden">
-      <Navbar />
-      
+
+
       <FlexibleBackgroundMeteors>
         <section className="py-16 sm:py-24 lg:py-32">
           <div
             className="mx-auto px-4 sm:px-6 lg:px-8"
             style={{ maxWidth: "1500px" }}
           >
+            {/* Back Button */}
+            <div className="mb-8">
+              <Link
+                href="/services"
+                className="inline-flex items-center px-6 py-3 text-gray-600 hover:text-[#7030a1] font-medium rounded-xl hover:bg-white/50 transition-all duration-300 group"
+              >
+                <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+                Back to Services
+              </Link>
+            </div>
+
             {/* Hero Section */}
             <div className="text-center mb-12 sm:mb-16 lg:mb-20">
               <TrueFocus
@@ -116,7 +127,7 @@ export default function RiskAssessmentPage() {
                       <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#7030a1] transition-colors duration-300">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed text-base">
                         {feature.description}
                       </p>
                     </div>
@@ -139,12 +150,12 @@ export default function RiskAssessmentPage() {
                     <h4 className="text-xl font-bold text-gray-900 mb-4">
                       {assessment.title}
                     </h4>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-gray-600 mb-6 text-base">
                       {assessment.description}
                     </p>
                     <ul className="space-y-2">
                       {assessment.includes.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-center text-sm text-gray-600">
+                        <li key={itemIndex} className="flex items-center text-base text-gray-600">
                           <div className="w-1.5 h-1.5 bg-[#7030a1] rounded-full mr-3"></div>
                           {item}
                         </li>
@@ -199,37 +210,12 @@ export default function RiskAssessmentPage() {
               </div>
             </div>
 
-            {/* Call to Action */}
-            <div className="text-center">
-              <div className="bg-white p-8 lg:p-12 rounded-3xl shadow-lg border-2 border-gray-100 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Start Your Risk Assessment Today
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Don't wait for a security incident to understand your risks. Get a comprehensive risk assessment and take proactive steps to protect your business.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center px-8 py-4 bg-gradient-to-br from-[#7030a1] to-[#9d4edd] hover:from-[#5a2581] hover:to-[#8a3bc8] text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1"
-                  >
-                    Schedule Assessment
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center px-8 py-4 border-2 border-[#7030a1] text-[#7030a1] hover:bg-[#7030a1] hover:text-white font-bold rounded-xl transition-all duration-300"
-                  >
-                    View All Services
-                  </Link>
-                </div>
-              </div>
-            </div>
+
           </div>
         </section>
       </FlexibleBackgroundMeteors>
-      
-      <Footer />
+
+
     </div>
   );
 }

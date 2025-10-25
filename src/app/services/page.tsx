@@ -56,7 +56,7 @@ export default function ServicesPage() {
   return (
     <div className="font-sans overflow-x-hidden">
       <Navbar />
-      
+
       <FlexibleBackgroundMeteors>
         <section className="py-16 sm:py-24 lg:py-32">
           <div
@@ -72,7 +72,7 @@ export default function ServicesPage() {
               />
               <div className="max-w-4xl mx-auto mt-6 sm:mt-10" style={{ minHeight: '6rem' }}>
                 <DecryptedText
-                  text="Comprehensive cybersecurity and compliance services designed to protect your business, ensure regulatory adherence, and empower your team with the knowledge and tools needed for a secure digital future."
+                  text="Comprehensive cybersecurity and compliance services that protect your business, ensure regulatory compliance, and equip your team with the tools for a secure digital future."
                   className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
                   animateOn="view"
                   speed={25}
@@ -103,18 +103,18 @@ export default function ServicesPage() {
                       <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
                         {service.description}
                       </p>
-                      
+
                       {/* Features List */}
                       <ul className="space-y-2 mb-6">
                         {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-sm text-gray-600">
+                          <li key={featureIndex} className="flex items-center text-base text-gray-600">
                             <div className="w-1.5 h-1.5 bg-[#7030a1] rounded-full mr-3"></div>
                             {feature}
                           </li>
                         ))}
                       </ul>
 
-                      <div className="mt-auto flex items-center text-[#7030a1] hover:text-[#5a2581] font-semibold text-sm transition-colors duration-300">
+                      <div className="mt-auto flex items-center text-[#7030a1] hover:text-[#5a2581] font-semibold text-base transition-colors duration-300">
                         Learn more
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
@@ -134,7 +134,7 @@ export default function ServicesPage() {
                   Our experts can design a tailored cybersecurity strategy that meets your specific business needs and compliance requirements.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/#contact"
                   className="inline-flex items-center px-8 py-4 bg-gradient-to-br from-[#7030a1] to-[#9d4edd] hover:from-[#5a2581] hover:to-[#8a3bc8] text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1"
                 >
                   Get Started Today
@@ -145,7 +145,7 @@ export default function ServicesPage() {
           </div>
         </section>
       </FlexibleBackgroundMeteors>
-      
+
       <Footer />
     </div>
   );

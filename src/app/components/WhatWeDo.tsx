@@ -1,31 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Shield, FileCheck, AlertTriangle, Zap } from "lucide-react";
+import React from "react";
+import { Shield, FileCheck, AlertTriangle, Zap, Building, Heart } from "lucide-react";
 import TrueFocus from "../../components/TrueFocus";
 import DecryptedText from "../../components/DecryptedText";
-import Interactive3DCamera from "../../components/Interactive3DCamera";
 
 const WhatWeDo = () => {
-  const [metrics, setMetrics] = useState({
-    identity: 94.2,
-    compliance: 98.7,
-    risk: 12,
-    maturity: 80
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMetrics(prev => ({
-        identity: Math.max(90, Math.min(98, prev.identity + (Math.random() - 0.5) * 2)),
-        compliance: Math.max(95, Math.min(100, prev.compliance + (Math.random() - 0.5) * 1)),
-        risk: Math.max(8, Math.min(20, prev.risk + (Math.random() - 0.5) * 3)),
-        maturity: Math.max(75, Math.min(85, prev.maturity + (Math.random() - 0.5) * 2))
-      }));
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="py-16 sm:py-24 lg:py-32">
@@ -57,7 +37,7 @@ const WhatWeDo = () => {
 
         {/* Mobile Layout */}
         <div className="block lg:hidden">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-4">
             <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group relative">
               {/* TrueFocus Corner Borders */}
               <div className="absolute -top-2 -left-2 w-4 h-4 border-l-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
@@ -73,7 +53,7 @@ const WhatWeDo = () => {
                   Identity Governance
                 </h3>
               </div>
-              <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
+              <p className="text-gray-600 leading-relaxed text-base group-hover:text-gray-700 transition-colors duration-300">
                 Identity governance solutions designed to streamline and secure onboarding, offboarding, and user access across your organization.
               </p>
             </div>
@@ -93,7 +73,7 @@ const WhatWeDo = () => {
                   Compliance Management
                 </h3>
               </div>
-              <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
+              <p className="text-gray-600 leading-relaxed text-base group-hover:text-gray-700 transition-colors duration-300">
                 Expert guidance on regulatory requirements including GDPR, HIPAA, SOX, and industry-specific standards.
               </p>
             </div>
@@ -113,7 +93,7 @@ const WhatWeDo = () => {
                   Risk Assessment
                 </h3>
               </div>
-              <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
+              <p className="text-gray-600 leading-relaxed text-base group-hover:text-gray-700 transition-colors duration-300">
                 Proactive risk assessment and management strategies to minimize vulnerabilities and business disruption.
               </p>
             </div>
@@ -133,7 +113,7 @@ const WhatWeDo = () => {
                   24/7 Monitoring
                 </h3>
               </div>
-              <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">
+              <p className="text-gray-600 leading-relaxed text-base group-hover:text-gray-700 transition-colors duration-300">
                 Continuous monitoring and rapid response to security threats with our advanced threat detection systems.
               </p>
             </div>
@@ -142,9 +122,9 @@ const WhatWeDo = () => {
 
         {/* Desktop Layout */}
         <div className="hidden lg:block">
-          <div className="relative w-full h-[450px] xl:h-[500px]">
+          <div className="relative w-full h-[500px] xl:h-[550px]">
             {/* Top Left Card */}
-            <div className="absolute top-0 left-0 w-64 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
+            <div className="absolute top-0 left-0 w-60 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
               {/* TrueFocus Corner Borders */}
               <div className="absolute -top-2 -left-2 w-4 h-4 border-l-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
               <div className="absolute -top-2 -right-2 w-4 h-4 border-r-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
@@ -157,14 +137,14 @@ const WhatWeDo = () => {
                 <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
                   Identity Governance
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-xs">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Identity governance solutions designed to streamline and secure onboarding, offboarding, and user access across your organization.
                 </p>
               </div>
             </div>
 
             {/* Top Right Card */}
-            <div className="absolute top-0 right-0 w-64 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
+            <div className="absolute top-0 right-0 w-60 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
               {/* TrueFocus Corner Borders */}
               <div className="absolute -top-2 -left-2 w-4 h-4 border-l-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
               <div className="absolute -top-2 -right-2 w-4 h-4 border-r-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
@@ -177,14 +157,14 @@ const WhatWeDo = () => {
                 <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
                   Compliance Management
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-xs">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Efficient audit management to help you maintain regulatory compliance and reduce risk across your organization.
                 </p>
               </div>
             </div>
 
             {/* Bottom Left Card */}
-            <div className="absolute bottom-0 left-0 w-64 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
+            <div className="absolute bottom-0 left-0 w-60 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
               {/* TrueFocus Corner Borders */}
               <div className="absolute -top-2 -left-2 w-4 h-4 border-l-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
               <div className="absolute -top-2 -right-2 w-4 h-4 border-r-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
@@ -197,14 +177,14 @@ const WhatWeDo = () => {
                 <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
                   Risk Management
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-xs">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Empower your organization to proactively identify, assess, and manage enterprise risks through a centralized platform with advanced analytics and reporting tools.
                 </p>
               </div>
             </div>
 
             {/* Bottom Right Card */}
-            <div className="absolute bottom-0 right-0 w-64 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
+            <div className="absolute bottom-0 right-0 w-60 bg-white p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group z-20">
               {/* TrueFocus Corner Borders */}
               <div className="absolute -top-2 -left-2 w-4 h-4 border-l-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
               <div className="absolute -top-2 -right-2 w-4 h-4 border-r-[3px] border-t-[3px] border-[#7030a1] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ filter: 'drop-shadow(0px 0px 4px #7030a1)' }}></div>
@@ -217,123 +197,130 @@ const WhatWeDo = () => {
                 <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
                   Security Maturity Assessment
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-xs">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Continuous evaluation of your organization's security posture with in-depth analysis, benchmarking, and actionable improvement plans.
                 </p>
               </div>
             </div>
 
-            {/* Central Feature - 3D Camera with Image Overlay */}
+            {/* Central Feature - Clean Security Visualization */}
             <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <div className="relative w-[500px] h-[500px] xl:w-[600px] xl:h-[600px] flex items-center justify-center pointer-events-auto">
+              <div className="relative w-[400px] h-[400px] xl:w-[450px] xl:h-[450px]">
 
-                {/* 3D Camera */}
-                <div className="relative z-10">
-                  <Interactive3DCamera />
-                </div>
-
-                {/* Image Overlay */}
-                <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-                  <img
-                    src="/cctvmonitor.jpg"
-                    alt="Security overlay"
-                    className="w-full h-full object-contain opacity-20"
-                  />
-                </div>
-
-                {/* Mac-style Security Monitor Window */}
-                <div className="absolute inset-4 z-30 pointer-events-none">
-                  {/* Window Frame */}
-                  <div className="w-full h-full bg-transparent rounded-lg border border-gray-700/50 shadow-2xl">
-
-                    {/* Mac Window Header */}
-                    <div className="flex items-center justify-between px-4 py-3 bg-gray-800/90 rounded-t-lg border-b border-gray-700">
-                      {/* Mac Traffic Light Buttons */}
-                      <div className="flex items-center space-x-2">
-                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      </div>
-
-                      {/* Window Title */}
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                        <span className="text-gray-300 text-sm font-mono">CyberSec Compliance Monitor</span>
-                      </div>
-
-                      {/* Status */}
-                      <div className="text-xs text-gray-400 font-mono">
-                        THREAT-INTEL | SOC2
-                      </div>
+                {/* Central NNUR Logo */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="relative">
+                    {/* Main Logo Container */}
+                    <div className="w-20 h-20 bg-white rounded-3xl shadow-2xl border-2 border-gray-100 flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                      <img
+                        src="/nNur-Logo-Icon.svg"
+                        alt="NNUR Logo"
+                        className="w-12 h-12 object-contain"
+                      />
                     </div>
 
-                    {/* Monitor Content Area - Transparent to show camera through */}
-                    <div className="relative w-full h-full bg-transparent">
+                    {/* Animated Rings */}
+                    <div className="absolute inset-0 border-2 border-[#7030a1]/20 rounded-3xl animate-ping" style={{ animationDuration: '3s' }}></div>
+                    <div className="absolute -inset-2 border border-[#7030a1]/10 rounded-3xl animate-ping" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
+                  </div>
+                </div>
 
-                      {/* Cybersecurity Indicators */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <div className="bg-black/70 backdrop-blur-sm rounded px-2 py-1 space-y-1">
-                          <div className="flex items-center space-x-1">
-                            <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                            <span className="text-green-400 text-xs font-mono">FIREWALL: ACTIVE</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
-                            <span className="text-cyan-400 text-xs font-mono">IDS: SCANNING</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            <span className="text-blue-400 text-xs font-mono">GDPR: COMPLIANT</span>
-                          </div>
-                        </div>
+                {/* Floating Compliance Badges */}
+                <div className="absolute top-16 left-16 z-10">
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-3 hover:shadow-xl transition-shadow duration-300 animate-bounce" style={{ animationDuration: '4s', animationDelay: '0s' }}>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span className="text-sm font-semibold text-gray-700">GDPR</span>
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">Compliant</div>
+                  </div>
+                </div>
+
+                <div className="absolute top-16 right-16 z-10">
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-3 hover:shadow-xl transition-shadow duration-300 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <span className="text-sm font-semibold text-gray-700">SOX</span>
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">Verified</div>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-16 left-16 z-10">
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-3 hover:shadow-xl transition-shadow duration-300 animate-bounce" style={{ animationDuration: '4s', animationDelay: '2s' }}>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <span className="text-sm font-semibold text-gray-700">HIPAA</span>
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">Secured</div>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-16 right-16 z-10">
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-3 hover:shadow-xl transition-shadow duration-300 animate-bounce" style={{ animationDuration: '4s', animationDelay: '3s' }}>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                      <span className="text-sm font-semibold text-gray-700">ISO 27001</span>
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">Certified</div>
+                  </div>
+                </div>
+
+                {/* Security Metrics Cards */}
+
+                <div className="absolute top-1/2 left-8 transform -translate-y-1/2 z-10">
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-4 hover:shadow-xl transition-shadow duration-300">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-600">
+                        <Shield className="w-6 h-6 mx-auto" />
                       </div>
-
-                      {/* Threat Level Indicator */}
-                      <div className="absolute top-4 right-4 z-10">
-                        <div className="bg-black/70 backdrop-blur-sm rounded px-2 py-1">
-                          <div className="flex items-center space-x-1">
-                            <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                            <span className="text-green-400 text-xs font-mono">THREAT LEVEL: LOW</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom Status Bar */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-b-lg border-t border-gray-700">
-                        <div className="flex items-center justify-between text-xs font-mono">
-                          <div className="flex items-center space-x-4">
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                              <span className="text-green-400">SECURE</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                              <span className="text-cyan-400">MONITORING</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                              <span className="text-blue-400">COMPLIANT</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                              <span className="text-orange-400">0 THREATS</span>
-                            </div>
-                          </div>
-                          <div className="text-gray-400">
-                            {new Date().toLocaleTimeString()}
-                          </div>
-                        </div>
-                      </div>
-
+                      <div className="text-sm text-gray-600">Secure</div>
                     </div>
                   </div>
                 </div>
 
-              </div>
+                <div className="absolute top-1/2 right-8 transform -translate-y-1/2 z-10">
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-4 hover:shadow-xl transition-shadow duration-300">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-cyan-600">
+                        <FileCheck className="w-6 h-6 mx-auto" />
+                      </div>
+                      <div className="text-sm text-gray-600">Compliant</div>
+                    </div>
+                  </div>
+                </div>
 
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-purple-400/5 rounded-full blur-2xl -z-10 animate-pulse" style={{ animationDuration: '4s' }}></div>
-              <div className="absolute inset-8 bg-gradient-to-tl from-emerald-400/3 to-blue-400/3 rounded-full blur-xl -z-10 animate-pulse" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
-              <div className="absolute inset-16 bg-gradient-to-br from-amber-400/2 to-purple-400/2 rounded-full blur-lg -z-10 animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
+                {/* Connecting Lines */}
+                <div className="absolute inset-0">
+                  {/* Subtle connection lines */}
+                  <svg className="w-full h-full" viewBox="0 0 400 400">
+                    <defs>
+                      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#7030a1" stopOpacity="0.1" />
+                        <stop offset="50%" stopColor="#7030a1" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#7030a1" stopOpacity="0.1" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Lines from center to corners */}
+                    <line x1="200" y1="200" x2="80" y2="80" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" />
+                    <line x1="200" y1="200" x2="320" y2="80" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                    <line x1="200" y1="200" x2="80" y2="320" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '1s' }} />
+                    <line x1="200" y1="200" x2="320" y2="320" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+
+                    {/* Lines to side metrics */}
+                    <line x1="200" y1="200" x2="100" y2="200" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '3s' }} />
+                    <line x1="200" y1="200" x2="300" y2="200" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '3.5s' }} />
+                  </svg>
+                </div>
+
+                {/* Outer Security Perimeter */}
+                <div className="absolute inset-0 border-2 border-dashed border-[#7030a1]/10 rounded-full animate-spin" style={{ animationDuration: '30s' }}></div>
+                <div className="absolute inset-8 border border-dashed border-[#7030a1]/5 rounded-full animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}></div>
+
+                {/* Subtle Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 via-transparent to-blue-400/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }}></div>
+              </div>
             </div>
           </div>
         </div>
@@ -341,5 +328,4 @@ const WhatWeDo = () => {
     </section>
   );
 };
-
 export default WhatWeDo;
