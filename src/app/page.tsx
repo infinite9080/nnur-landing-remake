@@ -23,9 +23,9 @@ export default function Home() {
         <div id="our-products">
           <OurProduct />
         </div>
-        <div id="our-services">
+        {/* <div id="our-services">
           <ServicesSection />
-        </div>
+        </div> */}
         <div id="about-us">
           <AboutUs />
         </div>
