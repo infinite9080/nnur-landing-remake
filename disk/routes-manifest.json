@@ -1,0 +1,164 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:all*(svg|jpg|png|webp|avif)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(svg|jpg|png|webp|avif)(?:/)?$"
+    },
+    {
+      "source": "/_next/static/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^/_next/static(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/cookies",
+      "regex": "^/cookies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cookies(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/products/nams",
+      "regex": "^/products/nams(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/nams(?:/)?$"
+    },
+    {
+      "page": "/products/nboard",
+      "regex": "^/products/nboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/nboard(?:/)?$"
+    },
+    {
+      "page": "/products/nerim",
+      "regex": "^/products/nerim(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/nerim(?:/)?$"
+    },
+    {
+      "page": "/products/niam",
+      "regex": "^/products/niam(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/niam(?:/)?$"
+    },
+    {
+      "page": "/products/nisma",
+      "regex": "^/products/nisma(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/nisma(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/services/compliance",
+      "regex": "^/services/compliance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/compliance(?:/)?$"
+    },
+    {
+      "page": "/services/consulting",
+      "regex": "^/services/consulting(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/consulting(?:/)?$"
+    },
+    {
+      "page": "/services/cybersecurity",
+      "regex": "^/services/cybersecurity(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/cybersecurity(?:/)?$"
+    },
+    {
+      "page": "/services/risk-assessment",
+      "regex": "^/services/risk\\-assessment(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/risk\\-assessment(?:/)?$"
+    },
+    {
+      "page": "/services/security-training",
+      "regex": "^/services/security\\-training(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/security\\-training(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

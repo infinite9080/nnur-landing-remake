@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Custom build directory
-  distDir: "disk",
-
   // Performance optimizations
   reactStrictMode: true,
 

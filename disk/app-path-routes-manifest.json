@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/cookies/page": "/cookies",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/privacy/page": "/privacy",
+  "/products/nams/page": "/products/nams",
+  "/products/nboard/page": "/products/nboard",
+  "/products/nerim/page": "/products/nerim",
+  "/products/niam/page": "/products/niam",
+  "/products/nisma/page": "/products/nisma",
+  "/services/compliance/page": "/services/compliance",
+  "/services/consulting/page": "/services/consulting",
+  "/services/cybersecurity/page": "/services/cybersecurity",
+  "/services/page": "/services",
+  "/services/risk-assessment/page": "/services/risk-assessment",
+  "/services/security-training/page": "/services/security-training",
+  "/terms/page": "/terms"
+}
