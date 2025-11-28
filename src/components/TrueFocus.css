@@ -18,7 +18,7 @@
 }
 
 .focus-word.active {
-  filter: blur(0);
+  filter: blur(1);
 }
 
 .focus-frame {
