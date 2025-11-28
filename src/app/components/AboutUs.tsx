@@ -22,15 +22,13 @@ const AboutUs = () => {
         style={{ maxWidth: "1500px" }}
       >
         {/* Main About Us Section */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-20 lg:mb-28">
           <TrueFocus sentence="About Us" borderColor="purple" blurAmount={0} />
-          <div
-            className="max-w-3xl mx-auto mt-6"
-            style={{ minHeight: "2.5rem", display: "flex", alignItems: "center" }}
-          >
+          <div className="max-w-4xl mx-auto mt-10">
             <DecryptedText
-              text="We’re passionate innovators making cybersecurity and compliance simple, effective, and accessible for businesses of all sizes."
-              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal"
+              text="We are a team of passionate innovators dedicated to making cybersecurity and compliance simple, effective, and accessible for businesses of all sizes."
+              className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light text-center"
+              parentClassName="w-full block"
               animateOn="view"
               speed={25}
               sequential={true}
@@ -40,32 +38,30 @@ const AboutUs = () => {
         </div>
 
         {/* Our Motto Section - Split Panel Design */}
-        <div className="ml-8 md:ml-16 mb-24">
-          <div className="border-l-4 border-[#7030a1]/30 pl-6 md:pl-8">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2 flex items-center">
-              <span className="w-2 h-2 bg-[#7030a1] rounded-full mr-3"></span>
-              Our Motto
-            </h3>
-            <p className="text-base text-gray-600 mb-6 ml-5">
+        <div className={styles.mottoSection}>
+          <div className={styles.mottoSectionHeader}>
+            <h2 className={styles.mottoSectionTitle}>Our Motto</h2>
+            <p className={styles.mottoSectionSubtitle}>
               The core values that drive everything we do
             </p>
           </div>
+
           <div className={styles.mottoPanelContainer}>
             <div className={`${styles.mottoPanel} ${styles.mottoPanel1}`}>
               <div className={styles.mottoPanelContent}>
-                <div className={styles.mottoNumber}>1</div>
+                <div className={styles.mottoNumber}>01</div>
                 <h3 className={styles.mottoText}>Innovation</h3>
               </div>
             </div>
             <div className={`${styles.mottoPanel} ${styles.mottoPanel2}`}>
               <div className={styles.mottoPanelContent}>
-                <div className={styles.mottoNumber}>2</div>
+                <div className={styles.mottoNumber}>02</div>
                 <h3 className={styles.mottoText}>Excellence</h3>
               </div>
             </div>
             <div className={`${styles.mottoPanel} ${styles.mottoPanel3}`}>
               <div className={styles.mottoPanelContent}>
-                <div className={styles.mottoNumber}>3</div>
+                <div className={styles.mottoNumber}>03</div>
                 <h3 className={styles.mottoText}>Integrity</h3>
               </div>
             </div>
@@ -73,16 +69,14 @@ const AboutUs = () => {
         </div>
 
         {/* Why Choose Us Section - Horizontal Timeline */}
-        <div className="ml-8 md:ml-16 mb-24">
-          <div className="mb-20 border-l-4 border-[#7030a1]/30 pl-6 md:pl-8">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2 flex items-center">
-              <span className="w-2 h-2 bg-[#7030a1] rounded-full mr-3"></span>
-              Why Choose Us
-            </h3>
-            <p className="text-base text-gray-600 mb-6 ml-5">
+        <div className={styles.whyChooseSection}>
+          <div className={styles.whySectionHeader}>
+            <h2 className={styles.whySectionTitle}>Why Choose Us</h2>
+            <p className={styles.whySectionSubtitle}>
               Four pillars that define our commitment to excellence
             </p>
           </div>
+
           <div className={styles.whyTimelineContainer}>
             <div className={styles.whyTimelineLine}></div>
 
@@ -152,23 +146,219 @@ const AboutUs = () => {
         </div>
 
         {/* Our Focus Section - Interactive Neural Network */}
-  
+        <div className={styles.focusSection}>
+          <div className={styles.focusSectionHeader}>
+            <h2 className={styles.focusSectionTitle}>Our Focus</h2>
+            <p className={styles.focusSectionSubtitle}>
+              Interconnected expertise driving innovation
+            </p>
+          </div>
+
+          <div className={styles.neuralNetwork}>
+            {/* Connection Lines */}
+            <svg className={styles.connectionSvg} viewBox="0 0 800 600">
+              <defs>
+                <linearGradient
+                  id="connectionGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                  <stop offset="50%" stopColor="#a855f7" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#ec4899" stopOpacity="0.4" />
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              {/* Animated connection lines */}
+              <path
+                d="M200,150 Q400,100 600,200"
+                stroke="url(#connectionGradient)"
+                strokeWidth="2"
+                fill="none"
+                className={styles.connectionLine}
+                filter="url(#glow)"
+              />
+              <path
+                d="M200,150 Q300,350 500,450"
+                stroke="url(#connectionGradient)"
+                strokeWidth="2"
+                fill="none"
+                className={styles.connectionLine}
+                style={{ animationDelay: "0.5s" }}
+                filter="url(#glow)"
+              />
+              <path
+                d="M600,200 Q550,350 500,450"
+                stroke="url(#connectionGradient)"
+                strokeWidth="2"
+                fill="none"
+                className={styles.connectionLine}
+                style={{ animationDelay: "1s" }}
+                filter="url(#glow)"
+              />
+            </svg>
+
+            {/* Focus Nodes */}
+            <div
+              className={styles.focusNode}
+              style={{ top: "15%", left: "20%" }}
+            >
+              <div className={styles.nodeCore}>
+                <div className={styles.nodeIcon}>
+                  <Building className="w-8 h-8" />
+                </div>
+                <div className={styles.nodeRipple}></div>
+              </div>
+              <div className={styles.nodeContent}>
+                <h3 className={styles.nodeTitle}>Enterprise Software</h3>
+                <div className={styles.nodeMetrics}>
+                  <div className={styles.metric}>
+                    <span className={styles.metricValue}>100%</span>
+                    <span className={styles.metricLabel}>Cloud Ready</span>
+                  </div>
+                  <div className={styles.metric}>
+                    <span className={styles.metricValue}>24/7</span>
+                    <span className={styles.metricLabel}>Support</span>
+                  </div>
+                </div>
+                <div className={styles.nodeFeatures}>
+                  <span>SaaS Solutions</span>
+                  <span>On-Premise</span>
+                  <span>Hybrid Cloud</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={styles.focusNode}
+              style={{ top: "20%", right: "15%" }}
+            >
+              <div className={styles.nodeCore}>
+                <div className={styles.nodeIcon}>
+                  <Shield className="w-8 h-8" />
+                </div>
+                <div className={styles.nodeRipple}></div>
+              </div>
+              <div className={styles.nodeContent}>
+                <h3 className={styles.nodeTitle}>Security & Compliance</h3>
+                <div className={styles.nodeMetrics}>
+                  <div className={styles.metric}>
+                    <span className={styles.metricValue}>Enterprise</span>
+                    <span className={styles.metricLabel}>Level Security</span>
+                  </div>
+                  <div className={styles.metric}>
+                    <span className={styles.metricValue}>ISO</span>
+                    <span className={styles.metricLabel}>Certified</span>
+                  </div>
+                </div>
+                <div className={styles.nodeFeatures}>
+                  <span>Zero Trust</span>
+                  <span>Compliance</span>
+                  <span>Audit Ready</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={styles.focusNode}
+              style={{
+                bottom: "15%",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+            >
+              <div className={styles.nodeCore}>
+                <div className={styles.nodeIcon}>
+                  <Heart className="w-8 h-8" />
+                </div>
+                <div className={styles.nodeRipple}></div>
+              </div>
+              <div className={styles.nodeContent}>
+                <h3 className={styles.nodeTitle}>Customer Success</h3>
+                <div className={styles.nodeMetrics}>
+                  <div className={styles.metric}>
+                    <span className={styles.metricValue}>98%</span>
+                    <span className={styles.metricLabel}>Satisfaction</span>
+                  </div>
+                  <div className={styles.metric}>
+                    <span className={styles.metricValue}>5★</span>
+                    <span className={styles.metricLabel}>Rating</span>
+                  </div>
+                </div>
+                <div className={styles.nodeFeatures}>
+                  <span>Partnership</span>
+                  <span>Growth Focus</span>
+                  <span>Success Driven</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Data Particles */}
+            <div className={styles.dataParticles}>
+              <div
+                className={styles.dataParticle}
+                style={{ top: "10%", left: "10%" }}
+              >
+                01
+              </div>
+              <div
+                className={styles.dataParticle}
+                style={{ top: "30%", right: "10%" }}
+              >
+                02
+              </div>
+              <div
+                className={styles.dataParticle}
+                style={{ bottom: "20%", left: "15%" }}
+              >
+                03
+              </div>
+              <div
+                className={styles.dataParticle}
+                style={{ top: "60%", right: "25%" }}
+              >
+                04
+              </div>
+              <div
+                className={styles.dataParticle}
+                style={{ bottom: "30%", right: "10%" }}
+              >
+                05
+              </div>
+            </div>
+
+            {/* Central Energy Hub */}
+            <div className={styles.energyHub}>
+              <div className={styles.hubCore}></div>
+              <div className={styles.hubRing1}></div>
+              <div className={styles.hubRing2}></div>
+              <div className={styles.hubRing3}></div>
+            </div>
+          </div>
+        </div>
 
         {/* Our Leaders Section */}
         <div id="our-leaders" className="mb-20 lg:mb-28">
-          <div className="text-center mb-12 lg:mb-16">
+          <div className="text-center mb-16">
             <TrueFocus
               sentence="Our Leaders"
               borderColor="purple"
               blurAmount={0}
             />
-            <div
-              className="max-w-3xl mx-auto mt-6"
-              style={{ minHeight: "2.5rem", display: "flex", alignItems: "center" }}
-            >
+            <div className="max-w-4xl mx-auto mt-10">
               <DecryptedText
                 text="Meet our passionate leaders who drive innovation and excellence in cybersecurity and compliance solutions."
-                className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal"
+                className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light text-center"
+                parentClassName="w-full block"
                 animateOn="view"
                 speed={25}
                 sequential={true}
@@ -183,7 +373,7 @@ const AboutUs = () => {
               name="Shafat Patvary"
               title="CEO and Co-Founder"
               linkedinUrl="https://www.linkedin.com/in/sifatullah/"
-              location="Enterprise Security Strategist"
+              location="15+ Years Experience"
               onContactClick={() => {
                 window.open(
                   "https://www.linkedin.com/in/sifatullah/",
@@ -196,11 +386,11 @@ const AboutUs = () => {
               avatarUrl="/Firoz-Haider-Khan.webp"
               name="Firoz Haider"
               title="Director and Co-Founder"
-              linkedinUrl="https://www.linkedin.com/in/firoz-haider-khan-15a56922/"
-              location="Cybersecurity & SaaS Innovation"
+              linkedinUrl="https://www.linkedin.com/in/firoz-haider-khan/"
+              location="Tech Innovation Leader"
               onContactClick={() => {
                 window.open(
-                  "https://www.linkedin.com/in/firoz-haider-khan-15a56922/",
+                  "https://www.linkedin.com/in/firoz-haider-khan/",
                   "_blank"
                 );
               }}

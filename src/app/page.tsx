@@ -1,12 +1,37 @@
-import HeroSection from "./components/HeroSection";
+"use client";
+
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
-import WhatWeDo from "./components/WhatWeDo";
-import ServicesSection from "./components/ServicesSection";
-import OurProduct from "./components/OurProduct";
-import AboutUs from "./components/AboutUs";
-import ContactSection from "./components/ContactSection";
-import Footer from "./components/Footer";
-import FlexibleBackgroundMeteors from "./components/FlexibleBackgroundMeteors";
+import HeroSection from "./components/HeroSection";
+
+// Lazy load heavy components
+const WhatWeDo = dynamic(() => import("./components/WhatWeDo"), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const OurProduct = dynamic(() => import("./components/OurProduct"), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const AboutUs = dynamic(() => import("./components/AboutUs"), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const ContactSection = dynamic(() => import("./components/ContactSection"), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const Footer = dynamic(() => import("./components/Footer"), {
+  loading: () => <div className="min-h-[200px]" />,
+});
+
+const FlexibleBackgroundMeteors = dynamic(
+  () => import("./components/FlexibleBackgroundMeteors"),
+  {
+    ssr: false,
+    loading: () => <div />,
+  }
+);
 
 export default function Home() {
   return (
@@ -23,9 +48,6 @@ export default function Home() {
         <div id="our-products">
           <OurProduct />
         </div>
-        {/* <div id="our-services">
-          <ServicesSection />
-        </div> */}
         <div id="about-us">
           <AboutUs />
         </div>

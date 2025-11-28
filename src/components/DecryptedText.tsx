@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, ReactNode } from "react";
+import { useEffect, useState, useRef, memo } from "react";
 import { motion, HTMLMotionProps } from "motion/react";
 
 const styles = {
@@ -9,8 +9,7 @@ const styles = {
     whiteSpace: "pre-wrap" as "pre-wrap",
     width: "100%",
     position: "relative" as "relative",
-    contain: "layout style paint",
-    transform: "translateZ(0)",
+    minHeight: "1em",
   },
   srOnly: {
     position: "absolute" as "absolute",
@@ -23,20 +22,17 @@ const styles = {
     border: 0,
   },
   textContainer: {
-    display: "block",
-    width: "100%",
-    position: "relative" as "relative",
-    contain: "layout style paint",
-  },
-  hiddenMeasure: {
     position: "absolute" as "absolute",
-    visibility: "hidden" as "hidden",
-    whiteSpace: "pre-wrap" as "pre-wrap",
     top: 0,
     left: 0,
     width: "100%",
+    height: "100%",
+  },
+  hiddenMeasure: {
+    visibility: "hidden" as "hidden",
+    whiteSpace: "pre-wrap" as "pre-wrap",
+    width: "100%",
     pointerEvents: "none" as "none",
-    zIndex: -1,
   },
 };
 
@@ -54,7 +50,7 @@ interface DecryptedTextProps extends HTMLMotionProps<"div"> {
   animateOn?: "view" | "hover" | "both";
 }
 
-export default function DecryptedText({
+const DecryptedText = memo(function DecryptedText({
   text,
   speed = 50,
   maxIterations = 10,
@@ -68,9 +64,7 @@ export default function DecryptedText({
   animateOn = "hover",
   ...props
 }: DecryptedTextProps) {
-  const [displayText, setDisplayText] = useState<string>(
-    text.slice(0, text.length)
-  );
+  const [displayText, setDisplayText] = useState<string>(text);
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [isScrambling, setIsScrambling] = useState<boolean>(false);
   const [revealedIndices, setRevealedIndices] = useState<Set<number>>(
@@ -124,8 +118,8 @@ export default function DecryptedText({
       originalText: string,
       currentRevealed: Set<number>
     ): string => {
-      // Ensure we only work with the exact original text length
-      const textChars = originalText.slice(0, actualTextLength).split("");
+      // Work with exact original text - no slicing needed
+      const textChars = originalText.split("");
 
       if (useOriginalCharsOnly) {
         const positions = textChars.map((char, i) => ({
@@ -148,15 +142,18 @@ export default function DecryptedText({
         }
 
         let charIndex = 0;
-        return positions
+        const result = positions
           .map((p) => {
             if (p.isSpace) return " ";
             if (p.isRevealed) return textChars[p.index];
             return nonSpaceChars[charIndex++] || p.char;
           })
           .join("");
+
+        // Ensure exact length match
+        return result.substring(0, actualTextLength);
       } else {
-        return textChars
+        const result = textChars
           .map((char, i) => {
             if (char === " ") return " ";
             if (currentRevealed.has(i)) return textChars[i];
@@ -165,6 +162,9 @@ export default function DecryptedText({
             ];
           })
           .join("");
+
+        // Ensure exact length match
+        return result.substring(0, actualTextLength);
       }
     };
 
@@ -179,7 +179,7 @@ export default function DecryptedText({
                 const newRevealed = new Set(prevRevealed);
                 newRevealed.add(nextIndex);
                 const shuffledText = shuffleText(text, newRevealed);
-                setDisplayText(shuffledText.slice(0, actualTextLength));
+                setDisplayText(shuffledText);
                 return newRevealed;
               }
             }
@@ -189,19 +189,19 @@ export default function DecryptedText({
             return prevRevealed;
           } else {
             const shuffledText = shuffleText(text, prevRevealed);
-            setDisplayText(shuffledText.slice(0, actualTextLength));
+            setDisplayText(shuffledText);
             currentIteration++;
             if (currentIteration >= maxIterations) {
               clearInterval(interval);
               setIsScrambling(false);
-              setDisplayText(text.slice(0, actualTextLength));
+              setDisplayText(text);
             }
             return prevRevealed;
           }
         });
       }, speed);
     } else {
-      setDisplayText(text.slice(0, actualTextLength));
+      setDisplayText(text);
       setRevealedIndices(new Set());
       setIsScrambling(false);
     }
@@ -273,16 +273,25 @@ export default function DecryptedText({
       <span style={styles.srOnly}>{text}</span>
 
       {/* Hidden reference text to maintain stable dimensions */}
-      <div style={styles.hiddenMeasure} className={className}>
+      <div
+        style={styles.hiddenMeasure}
+        className={className}
+        aria-hidden="true"
+      >
         {text}
       </div>
 
       <div aria-hidden="true" style={styles.textContainer}>
-        <span className={className} style={{ display: "block", width: "100%" }}>
+        <span className={className}>
           {text.split("").map((char, index) => {
             const isRevealed =
               revealedIndices.has(index) || !isScrambling || !isHovering;
-            const displayChar = isRevealed ? char : displayText[index] || char;
+            // Ensure we never go beyond the original text length
+            const displayChar = isRevealed
+              ? char
+              : displayText[index] !== undefined
+              ? displayText[index]
+              : char;
 
             return (
               <span
@@ -298,4 +307,8 @@ export default function DecryptedText({
       </div>
     </motion.div>
   );
-}
+});
+
+DecryptedText.displayName = "DecryptedText";
+
+export default DecryptedText;
