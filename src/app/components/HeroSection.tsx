@@ -57,20 +57,17 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Text content positioned on the left */}
+      {/* Text content */}
       <div className={styles.textContent}>
         <div
-          className="px-4 my-auto sm:px-6 lg:px-8"
+          className="px-4 my-auto sm:px-6 lg:px-8 w-full"
           style={{
             maxWidth: "1500px",
-            marginLeft: "max(1rem, calc((100vw - 1500px) / 2 + 1rem))",
-            marginRight: "auto",
-            width: "100%",
           }}
         >
-          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
             {/* Main Title with TrueFocus */}
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6">
               <div className={`hero-title-container ${styles.animateFadeInUp}`}>
                 <TrueFocus
                   sentence="Cybersecurity & Compliance"
@@ -85,12 +82,12 @@ const HeroSection = () => {
 
             {/* Enhanced Description */}
             <div
-              className={`max-w-4xl lg:mx-0 ${styles.animateZoomIn}`}
+              className={`max-w-4xl mx-auto lg:mx-0 text-center lg:text-left ${styles.animateZoomIn}`}
               style={{ animationDelay: "0.6s" }}
             >
               <div
                 style={{
-                  minHeight: "6rem",
+                  minHeight: "4rem",
                   display: "flex",
                   alignItems: "flex-start",
                 }}
@@ -98,7 +95,7 @@ const HeroSection = () => {
               >
                 <DecryptedText
                   text="Protect your digital assets with robust security, regulatory compliance, and proactive risk management."
-                  className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-light"
                   parentClassName="block w-full"
                   animateOn="view"
                   speed={30}
@@ -110,7 +107,7 @@ const HeroSection = () => {
 
             {/* Enhanced Trust Indicators */}
             <div
-              className={`flex flex-wrap gap-3 sm:gap-4 ${styles.animateRotateIn}`}
+              className={`flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start ${styles.animateRotateIn}`}
               style={{ animationDelay: "1.2s" }}
             >
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
@@ -132,7 +129,7 @@ const HeroSection = () => {
                   SOC 2
                 </span>
               </div>
-{/* 
+              {/* 
               <div className="group flex items-center gap-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm px-5 py-4 rounded-2xl shadow-lg border border-white/40 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                 <CircleCheck
                   size={20}

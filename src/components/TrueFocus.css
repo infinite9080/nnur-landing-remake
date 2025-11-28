@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .focus-word {
@@ -12,9 +14,7 @@
   font-size: 3rem;
   font-weight: 900;
   cursor: pointer;
-  transition:
-    filter 0.3s ease,
-    color 0.3s ease;
+  transition: filter 0.3s ease, color 0.3s ease;
 }
 
 .focus-word.active {
@@ -28,6 +28,11 @@
   pointer-events: none;
   box-sizing: content-box;
   border: none;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .corner {
@@ -36,8 +41,13 @@
   height: 1rem;
   border: 3px solid var(--border-color, #fff);
   filter: drop-shadow(0px 0px 4px var(--border-color, #fff));
+  -webkit-filter: drop-shadow(0px 0px 4px var(--border-color, #fff));
   border-radius: 3px;
   transition: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .top-left {
@@ -66,4 +76,63 @@
   right: -10px;
   border-left: none;
   border-top: none;
+}
+
+/* Mobile optimizations to prevent trails and viewport overflow */
+@media (max-width: 768px) {
+  .focus-container {
+    overflow: visible;
+    padding: 0 0.5rem;
+    max-width: 100%;
+  }
+
+  .focus-frame {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  .corner {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  .focus-word {
+    font-size: 1.75rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.2;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .focus-word {
+    font-size: 1.5rem;
+  }
+
+  .corner {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-width: 2px;
+  }
+
+  .top-left,
+  .top-right {
+    top: -8px;
+  }
+
+  .bottom-left,
+  .bottom-right {
+    bottom: -8px;
+  }
+
+  .top-left,
+  .bottom-left {
+    left: -8px;
+  }
+
+  .top-right,
+  .bottom-right {
+    right: -8px;
+  }
 }

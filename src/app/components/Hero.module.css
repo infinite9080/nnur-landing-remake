@@ -12,20 +12,39 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #ffffff 50%, #f1f3f4 75%, #e8eaed 100%);
+  background: linear-gradient(
+    135deg,
+    #f8f9fa 0%,
+    #e9ecef 25%,
+    #ffffff 50%,
+    #f1f3f4 75%,
+    #e8eaed 100%
+  );
   z-index: 1;
 }
 
 .mobileBackground::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 30% 20%, rgba(112, 48, 161, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 20% 80%, rgba(112, 48, 161, 0.05) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(112, 48, 161, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(157, 78, 221, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(112, 48, 161, 0.05) 0%,
+      transparent 50%
+    );
 }
 
 .svgBackground {
@@ -80,41 +99,57 @@
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-start;
-  padding-top: 6rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
   z-index: 5;
   pointer-events: none;
 }
 
-/* Mobile: Adjust positioning for better readability */
-@media (max-width: 1023px) {
+/* Desktop: Align to left */
+@media (min-width: 1024px) {
   .textContent {
-    padding-top: 8rem;
     align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 6rem;
+  }
+
+  /* Override TrueFocus centering to align with other text on desktop */
+  .textContent :global(.hero-title-container) :global(.focus-container) {
+    justify-content: flex-start !important;
   }
 }
 
-/* Override TrueFocus centering to align with other text */
-.textContent :global(.hero-title-container) :global(.focus-container) {
-  justify-content: flex-start !important;
+/* Tablet: Center content */
+@media (max-width: 1023px) and (min-width: 641px) {
+  .textContent {
+    padding-top: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: center;
+  }
+
+  .textContent :global(.hero-title-container) :global(.focus-container) {
+    justify-content: center !important;
+  }
+}
+
+/* Mobile: Center content with less top padding */
+@media (max-width: 640px) {
+  .textContent {
+    padding-top: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+  }
+
+  .textContent :global(.hero-title-container) :global(.focus-container) {
+    justify-content: center !important;
+  }
 }
 
 .textContent * {
   pointer-events: auto;
-}
-
-/* Mobile: Position content under logo */
-@media (max-width: 768px) {
-  .textContent {
-    padding-top: 6rem;
-  }
-}
-
-/* Small mobile: Position content under logo */
-@media (max-width: 480px) {
-  .textContent {
-    padding-top: 6rem;
-  }
 }
 
 /* Enhanced Animations for Security Theme */
@@ -198,7 +233,8 @@
 }
 
 @keyframes security-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
@@ -209,7 +245,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
