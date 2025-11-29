@@ -97,8 +97,20 @@ export default function ContactSection() {
     }
   };
 
+  useEffect(() => {
+    // Check for hash and scroll if needed
+    if (window.location.hash === '#contact') {
+      const element = document.getElementById('contact');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, []);
+
   return (
-    <section id="contact" className="py-16 sm:py-24 lg:py-32">
+    <section className="py-16 sm:py-24 lg:py-32">
       <div
         className="mx-auto px-4 sm:px-6 lg:px-8"
         style={{ maxWidth: "1500px" }}
