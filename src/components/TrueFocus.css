@@ -9,6 +9,13 @@
   isolation: isolate;
 }
 
+/* Desktop: Allow parent to control alignment */
+@media (min-width: 1024px) {
+  .hero-title-container .focus-container {
+    justify-content: flex-start;
+  }
+}
+
 .focus-word {
   position: relative;
   font-size: 3rem;

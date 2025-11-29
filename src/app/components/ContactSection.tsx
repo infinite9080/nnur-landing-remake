@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   Mail,
   Phone,
@@ -18,6 +19,8 @@ import DecryptedText from "../../components/DecryptedText";
 import styles from "./ContactSection.module.css";
 
 export default function ContactSection() {
+  const searchParams = useSearchParams();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,8 +28,22 @@ export default function ContactSection() {
     company: "",
     subject: "",
     service: "",
+    requestType: "",
     message: "",
   });
+
+  useEffect(() => {
+    // Pre-fill form based on URL parameters
+    const type = searchParams.get('type');
+    const product = searchParams.get('product');
+
+    if (type) {
+      setFormData(prev => ({ ...prev, requestType: type }));
+    }
+    if (product) {
+      setFormData(prev => ({ ...prev, service: product }));
+    }
+  }, [searchParams]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -39,10 +56,45 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xnngglgj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          subject: "",
+          service: "",
+          requestType: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -84,8 +136,8 @@ export default function ContactSection() {
               <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                    <Mail className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 min-w-[4rem] min-h-[4rem] flex-shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                    <Mail className="w-8 h-8 text-white flex-shrink-0" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
@@ -102,8 +154,8 @@ export default function ContactSection() {
               <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                    <Phone className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 min-w-[4rem] min-h-[4rem] flex-shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                    <Phone className="w-8 h-8 text-white flex-shrink-0" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
@@ -120,8 +172,8 @@ export default function ContactSection() {
               <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-gray-100 hover:border-[#7030a1]/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                    <MapPin className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 min-w-[4rem] min-h-[4rem] flex-shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                    <MapPin className="w-8 h-8 text-white flex-shrink-0" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#7030a1] transition-colors duration-300">
@@ -140,8 +192,8 @@ export default function ContactSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                    <Clock className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 min-w-[4rem] min-h-[4rem] flex-shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                    <Clock className="w-8 h-8 text-white flex-shrink-0" />
                   </div>
                   <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#7030a1] transition-colors duration-300">
                     Business Hours
@@ -241,8 +293,8 @@ export default function ContactSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#7030a1]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative z-10">
               <div className="flex items-center space-x-4 mb-8">
-                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 flex items-center justify-center shadow-lg">
-                  <MessageSquare className="w-8 h-8 text-white" />
+                <div className="bg-gradient-to-br from-[#7030a1] to-[#9d4edd] rounded-2xl w-16 h-16 min-w-[4rem] min-h-[4rem] flex-shrink-0 flex items-center justify-center shadow-lg">
+                  <MessageSquare className="w-8 h-8 text-white flex-shrink-0" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
                   Send us a Message
@@ -331,21 +383,25 @@ export default function ContactSection() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label
-                      htmlFor="subject"
+                      htmlFor="requestType"
                       className="block text-sm font-semibold text-gray-700 mb-3"
                     >
-                      Subject *
+                      Request Type *
                     </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
+                    <select
+                      id="requestType"
+                      name="requestType"
+                      value={formData.requestType}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#7030a1] focus:border-[#7030a1] transition-all duration-300 hover:border-[#7030a1]/50"
-                      placeholder="How can we help secure your business?"
                       required
-                    />
+                    >
+                      <option value="">Select request type</option>
+                      <option value="demo">Request Demo</option>
+                      <option value="sales">Contact Sales</option>
+                      <option value="support">Technical Support</option>
+                      <option value="general">General Inquiry</option>
+                    </select>
                   </div>
 
                   <div>
@@ -353,7 +409,7 @@ export default function ContactSection() {
                       htmlFor="service"
                       className="block text-sm font-semibold text-gray-700 mb-3"
                     >
-                      Service Interest
+                      Product/Service Interest
                     </label>
                     <select
                       id="service"
@@ -362,7 +418,7 @@ export default function ContactSection() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#7030a1] focus:border-[#7030a1] transition-all duration-300 hover:border-[#7030a1]/50"
                     >
-                      <option value="">Select a service</option>
+                      <option value="">Select a product/service</option>
                       <option value="nAMS">nAMS - Audit Management</option>
                       <option value="nIAM">
                         nIAM - Identity & Access Management
@@ -376,6 +432,25 @@ export default function ContactSection() {
                       <option value="other">Other</option>
                     </select>
                   </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-semibold text-gray-700 mb-3"
+                  >
+                    Subject *
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#7030a1] focus:border-[#7030a1] transition-all duration-300 hover:border-[#7030a1]/50"
+                    placeholder="How can we help secure your business?"
+                    required
+                  />
                 </div>
 
                 <div>
@@ -397,12 +472,49 @@ export default function ContactSection() {
                   ></textarea>
                 </div>
 
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-50 border-2 border-green-200 rounded-xl text-green-700 text-center animate-[slideDown_0.5s_ease-out]">
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-[scaleIn_0.5s_ease-out]">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="font-semibold">Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
+                    </div>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl text-red-700 text-center animate-[shake_0.5s_ease-in-out]">
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <span className="font-semibold">Oops! Something went wrong. Please try again or email us directly at sales@nnur.ca</span>
+                    </div>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-br from-[#7030a1] to-[#9d4edd] hover:from-[#5a2581] hover:to-[#8a3bc8] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-2xl hover:-translate-y-1"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-br from-[#7030a1] to-[#9d4edd] hover:from-[#5a2581] hover:to-[#8a3bc8] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-2xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
                 >
-                  <Send className="w-5 h-5" />
-                  <span>Send Message</span>
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      <span>Send Message</span>
+                    </>
+                  )}
                 </button>
               </form>
             </div>

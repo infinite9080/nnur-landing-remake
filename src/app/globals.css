@@ -335,3 +335,48 @@
   animation: spin-slow 8s linear infinite;
   -webkit-animation: spin-slow 8s linear infinite;
 }
+
+/* Preloader styles */
+body.overflow-hidden {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Ensure smooth loading */
+body {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Contact Form Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}

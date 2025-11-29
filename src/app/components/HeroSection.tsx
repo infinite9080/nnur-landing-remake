@@ -60,7 +60,7 @@ const HeroSection = () => {
       {/* Text content */}
       <div className={styles.textContent}>
         <div
-          className="px-4 my-auto sm:px-6 lg:px-8 w-full"
+          className="px-4 my-auto sm:px-6 lg:px-8 w-full mx-auto"
           style={{
             maxWidth: "1500px",
           }}

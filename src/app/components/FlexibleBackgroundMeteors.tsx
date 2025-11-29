@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, ReactNode, useRef } from "react";
+import React, { useEffect, useState, ReactNode, useRef, memo } from "react";
 import { motion } from "framer-motion";
 
 interface Beam {
@@ -13,12 +13,13 @@ interface FlexibleBackgroundMeteorsProps {
   children?: ReactNode;
 }
 
-export default function FlexibleBackgroundMeteors({
+const FlexibleBackgroundMeteors = memo(function FlexibleBackgroundMeteors({
   children,
 }: FlexibleBackgroundMeteorsProps) {
   const [beams, setBeams] = useState<Beam[]>([]);
   const [windowHeight, setWindowHeight] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const beamIdCounter = useRef(0);
   const gridSize = 40;
   const totalLines = 35;
 
@@ -47,10 +48,10 @@ export default function FlexibleBackgroundMeteors({
     // Set window height on client side
     if (typeof window !== 'undefined') {
       setWindowHeight(window.innerHeight);
-      
+
       const handleResize = () => setWindowHeight(window.innerHeight);
       window.addEventListener('resize', handleResize);
-      
+
       return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
@@ -58,12 +59,14 @@ export default function FlexibleBackgroundMeteors({
 
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
     const generateBeams = () => {
       const count = Math.floor(Math.random() * 2) + 3;
       const xPositions = generateSafeGridPositions(count);
 
       const newBeams: Beam[] = xPositions.map((x) => ({
-        id: Math.random(),
+        id: beamIdCounter.current++,
         x,
         duration: 4 + Math.random() * 1.5,
       }));
@@ -71,14 +74,18 @@ export default function FlexibleBackgroundMeteors({
       setBeams(newBeams);
 
       const maxDuration = Math.max(...newBeams.map((b) => b.duration));
-      setTimeout(generateBeams, (maxDuration - 0.5) * 1000);
+      timeoutId = setTimeout(generateBeams, (maxDuration - 0.5) * 1000);
     };
 
     generateBeams();
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="relative w-full overflow-hidden bg-white dark:bg-black"
     >
@@ -128,4 +135,6 @@ export default function FlexibleBackgroundMeteors({
       </div>
     </div>
   );
-}
+});
+
+export default FlexibleBackgroundMeteors;

@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import PageLoader from '../../../components/PageLoader';
 import FlexibleBackgroundMeteors from '../../components/FlexibleBackgroundMeteors';
 import { ArrowLeft, Shield, CheckCircle, Users, BarChart3 } from 'lucide-react';
 import Link from 'next/link';
@@ -7,6 +9,7 @@ import Link from 'next/link';
 export default function NAMSPage() {
   return (
     <div className="font-sans overflow-x-hidden">
+      <PageLoader />
       <Navbar />
       <FlexibleBackgroundMeteors>
         <div className="py-16 sm:py-24 lg:py-32">
@@ -124,17 +127,18 @@ export default function NAMSPage() {
                 Get started with nAMS today and experience the future of audit management.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 bg-[#7030a1] text-white font-semibold rounded-lg hover:bg-[#5a2581] transition-colors duration-300">
+                <Link href="/?type=demo&product=nAMS#contact" className="px-8 py-4 bg-[#7030a1] text-white font-semibold rounded-lg hover:bg-[#5a2581] transition-colors duration-300 text-center">
                   Request Demo
-                </button>
-                <button className="px-8 py-4 border-2 border-[#7030a1] text-[#7030a1] font-semibold rounded-lg hover:bg-[#7030a1] hover:text-white transition-colors duration-300">
+                </Link>
+                <Link href="/?type=sales&product=nAMS#contact" className="px-8 py-4 border-2 border-[#7030a1] text-[#7030a1] font-semibold rounded-lg hover:bg-[#7030a1] hover:text-white transition-colors duration-300 text-center">
                   Contact Sales
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </FlexibleBackgroundMeteors>
+      <Footer />
     </div>
   );
 }

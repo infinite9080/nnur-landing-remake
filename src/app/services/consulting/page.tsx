@@ -7,6 +7,7 @@ import TrueFocus from "../../../components/TrueFocus";
 import DecryptedText from "../../../components/DecryptedText";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import PageLoader from "../../../components/PageLoader";
 import FlexibleBackgroundMeteors from "../../components/FlexibleBackgroundMeteors";
 
 const features = [
@@ -77,8 +78,8 @@ const benefits = [
 export default function ConsultingPage() {
   return (
     <div className="font-sans overflow-x-hidden">
-
-      
+      <PageLoader />
+      <Navbar />
       <FlexibleBackgroundMeteors>
         <section className="py-16 sm:py-24 lg:py-32">
           <div
@@ -259,8 +260,7 @@ export default function ConsultingPage() {
           </div>
         </section>
       </FlexibleBackgroundMeteors>
-      
-
+      <Footer />
     </div>
   );
 }

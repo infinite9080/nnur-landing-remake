@@ -1,19 +1,56 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
-import { usePathname } from "next/navigation";
 import LogoIcon from "./LogoIcon";
 
 const Preloader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(false);
 
-  const pathname = usePathname();
+  // Only render on client side to avoid hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // Only show preloader on initial website visit (hard refresh)
+    // Use sessionStorage to track if user has already seen the preloader
+    const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
+    
+    if (!hasSeenPreloader) {
+      setShowPreloader(true);
+      sessionStorage.setItem('preloaderShown', 'true');
+    }
+  }, []);
+
+  // Wait for page to be fully loaded (only if showing preloader)
+  useEffect(() => {
+    if (!isMounted || !showPreloader) return;
+
+    const handleLoad = () => {
+      setIsLoaded(true);
+    };
+
+    // Check if already loaded
+    if (document.readyState === "complete") {
+      // Small delay to ensure content is rendered
+      setTimeout(() => setIsLoaded(true), 100);
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, [isMounted, showPreloader]);
 
   useEffect(() => {
+    if (!isLoaded || !isMounted || !showPreloader) return;
+
     // Use a GSAP context for safe cleanup
     const ctx = gsap.context(() => {
       // Find all the individual <path> elements within the SVG
@@ -59,7 +96,7 @@ const Preloader = () => {
       );
 
       // 4. Add a subtle pulse after the main animation is complete
-      gsap.to(logoRef.current, {
+      const pulseAnimation = gsap.to(logoRef.current, {
         scale: 1.02,
         duration: 1.2,
         yoyo: true,
@@ -79,6 +116,7 @@ const Preloader = () => {
             containerRef.current.style.display = "none";
             document.body.classList.remove("overflow-hidden");
           }
+          pulseAnimation.kill(); // Stop the pulse animation
         },
       });
     }, containerRef);
@@ -91,29 +129,47 @@ const Preloader = () => {
       ctx.revert();
       document.body.classList.remove("overflow-hidden");
     };
-  }, [pathname]);
+  }, [isLoaded, isMounted, showPreloader]);
+
+  // Don't render anything on server or if preloader shouldn't show
+  if (!isMounted || !showPreloader) {
+    return null;
+  }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
+        key="preloader-initial"
         ref={containerRef}
         initial={{ opacity: 1 }}
         className="fixed inset-0 z-[9999] bg-white flex items-center justify-center"
       >
-        <div className="flex items-center">
-          {/* SVG Logo */}
-          <div ref={logoRef} className="w-20 h-20">
-            <LogoIcon />
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex items-center">
+            {/* SVG Logo */}
+            <div ref={logoRef} className="w-20 h-20">
+              <LogoIcon />
+            </div>
+
+            {/* Text "nnur" */}
+            <span
+              ref={textRef}
+              className="text-[#732e9e] text-7xl md:text-7xl font-bold italic tracking-tight"
+              style={{ fontFamily: "Abingdon, serif" }}
+            >
+              nnur
+            </span>
           </div>
 
-          {/* Text "nnur" */}
-          <span
-            ref={textRef}
-            className="text-[#732e9e] text-7xl md:text-7xl font-bold italic tracking-tight"
-            style={{ fontFamily: "Abingdon, serif" }}
+          {/* Loading indicator - always render but control visibility */}
+          <div
+            className="flex items-center gap-2 text-gray-500 text-sm transition-opacity duration-300"
+            style={{ opacity: isLoaded ? 0 : 1 }}
           >
-            nnur
-          </span>
+            <div className="w-2 h-2 bg-[#732e9e] rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></div>
+            <div className="w-2 h-2 bg-[#732e9e] rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></div>
+            <div className="w-2 h-2 bg-[#732e9e] rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></div>
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>

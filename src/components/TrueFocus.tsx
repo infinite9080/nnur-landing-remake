@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, useState, useMemo, memo } from "react";
 import { motion } from "motion/react";
 import "./TrueFocus.css";
 
@@ -19,7 +19,7 @@ interface FocusRect {
   height: number;
 }
 
-const TrueFocus: React.FC<TrueFocusProps> = ({
+const TrueFocus: React.FC<TrueFocusProps> = memo(({
   sentence = "True Focus",
   manualMode = false,
   blurAmount = 5,
@@ -28,7 +28,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
   animationDuration = 0.5,
   pauseBetweenAnimations = 1,
 }) => {
-  const words = sentence.split(" ");
+  const words = useMemo(() => sentence.split(" "), [sentence]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,7 +87,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
         const isActive = index === currentIndex;
         return (
           <span
-            key={index}
+            key={`${word}-${index}-${words.length}`}
             ref={(el) => {
               if (el) {
                 wordRefs.current[index] = el;
@@ -145,6 +145,8 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
       </motion.div>
     </div>
   );
-};
+});
+
+TrueFocus.displayName = "TrueFocus";
 
 export default TrueFocus;

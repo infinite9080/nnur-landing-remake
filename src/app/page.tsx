@@ -41,19 +41,21 @@ export default function Home() {
         <HeroSection />
       </div>
 
-      <FlexibleBackgroundMeteors>
-        <div id="what-we-do">
-          <WhatWeDo />
-        </div>
-        <div id="our-products">
-          <OurProduct />
-        </div>
-        <div id="about-us">
-          <AboutUs />
-        </div>
-        <div id="contact">
-          <ContactSection />
-        </div>
+      <FlexibleBackgroundMeteors key="main-content">
+        <>
+          <div id="what-we-do">
+            <WhatWeDo />
+          </div>
+          <div id="our-products">
+            <OurProduct />
+          </div>
+          <div id="about-us">
+            <AboutUs />
+          </div>
+          <div id="contact">
+            <ContactSection />
+          </div>
+        </>
       </FlexibleBackgroundMeteors>
       <Footer />
     </div>

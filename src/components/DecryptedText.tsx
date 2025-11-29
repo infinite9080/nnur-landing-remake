@@ -79,6 +79,7 @@ const DecryptedText = memo(function DecryptedText({
   useEffect(() => {
     let interval: NodeJS.Timeout;
     let currentIteration = 0;
+    let isMounted = true;
 
     const getNextIndex = (revealedSet: Set<number>): number => {
       switch (revealDirection) {
@@ -168,9 +169,11 @@ const DecryptedText = memo(function DecryptedText({
       }
     };
 
-    if (isHovering) {
+    if (isHovering && isMounted) {
       setIsScrambling(true);
       interval = setInterval(() => {
+        if (!isMounted) return;
+        
         setRevealedIndices((prevRevealed) => {
           if (sequential) {
             if (prevRevealed.size < actualTextLength) {
@@ -179,34 +182,39 @@ const DecryptedText = memo(function DecryptedText({
                 const newRevealed = new Set(prevRevealed);
                 newRevealed.add(nextIndex);
                 const shuffledText = shuffleText(text, newRevealed);
-                setDisplayText(shuffledText);
+                if (isMounted) setDisplayText(shuffledText);
                 return newRevealed;
               }
             }
             clearInterval(interval);
-            setIsScrambling(false);
-            setDisplayText(text);
+            if (isMounted) {
+              setIsScrambling(false);
+              setDisplayText(text);
+            }
             return prevRevealed;
           } else {
             const shuffledText = shuffleText(text, prevRevealed);
-            setDisplayText(shuffledText);
+            if (isMounted) setDisplayText(shuffledText);
             currentIteration++;
             if (currentIteration >= maxIterations) {
               clearInterval(interval);
-              setIsScrambling(false);
-              setDisplayText(text);
+              if (isMounted) {
+                setIsScrambling(false);
+                setDisplayText(text);
+              }
             }
             return prevRevealed;
           }
         });
       }, speed);
-    } else {
+    } else if (isMounted) {
       setDisplayText(text);
       setRevealedIndices(new Set());
       setIsScrambling(false);
     }
 
     return () => {
+      isMounted = false;
       if (interval) clearInterval(interval);
     };
   }, [
@@ -218,6 +226,7 @@ const DecryptedText = memo(function DecryptedText({
     revealDirection,
     characters,
     useOriginalCharsOnly,
+    actualTextLength,
   ]);
 
   useEffect(() => {
@@ -295,7 +304,7 @@ const DecryptedText = memo(function DecryptedText({
 
             return (
               <span
-                key={index}
+                key={`char-${index}-${text.length}`}
                 className={isRevealed ? "" : encryptedClassName}
                 style={{ display: "inline" }}
               >
